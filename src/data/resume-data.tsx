@@ -53,7 +53,7 @@ export const RESUME_DATA = {
     },
     {
       company: "Team Tamizhan",
-      link: "https://clevertech.biz",
+      link: "https://faq.itamizhan.com",
       badges: ["Remote Intern"],
       title: "Tech Consultant",
       start: "Dec 2022",
@@ -82,8 +82,8 @@ export const RESUME_DATA = {
       description:
         "Development of a Web IDE enabled with JudgeO/Kubernetes, for students to access powerful remote development environment",
       link: {
-        label: "web-ide.isujith.dev",
-        href: "https://web-ide.vercel.app",
+        label: "compile-now.isujith.dev",
+        href: "https://compile-not.isujith.dev",
       },
     },
     {
