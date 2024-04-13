@@ -4,7 +4,7 @@ export const RESUME_DATA = {
   name: "Sujith Thirumalaisamy",
   initials: "ST",
   location: "Bangalore, Karnataka",
-  locationLink: "https://www.google.com/maps/place/Udumalaipettai",
+  locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about:
     "Jr. Full Stack Engineer focused on learning by experimenting and building products.",
   summary:
