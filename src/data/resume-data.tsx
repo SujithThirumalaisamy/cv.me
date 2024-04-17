@@ -176,6 +176,7 @@ export const RESUME_DATA = {
         "TurboRepo",
         "Prisma",
         "Notion API",
+        "4 Merges",
       ],
       description:
         "Slides app of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
