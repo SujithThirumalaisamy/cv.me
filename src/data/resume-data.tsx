@@ -123,6 +123,23 @@ export const RESUME_DATA = {
       description:
         "Building my own homelab with 1Gbps networking and hosting services like Databases and media servers.",
     },
+    {
+      title: "Remote Execution Engine",
+      techStack: [
+        "Project",
+        "Language Runtimes",
+        "Kubernetes",
+        "SQL/NoSQL",
+        "System Design",
+        "Shell Scripting",
+      ],
+      description:
+        "Building a highly scalable remote code execution and testing engine with HA Kubernetes.",
+      link: {
+        label: "Repository",
+        href: "https://github.com/SujithThirumalaisamy/remote-execution-engine",
+      },
+    },
   ],
   opensource: [
     {
