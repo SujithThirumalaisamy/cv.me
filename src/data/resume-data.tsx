@@ -83,7 +83,7 @@ export const RESUME_DATA = {
         "Development of a Web IDE enabled with JudgeO/Kubernetes, for students to access powerful remote development environment",
       link: {
         label: "compile-now.isujith.dev",
-        href: "https://compile-not.isujith.dev",
+        href: "https://compile-now.isujith.dev",
       },
     },
     {
