@@ -42,12 +42,22 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Data Vidhya",
+      link: "https://datavidhya.com",
+      badges: ["Remote Intern"],
+      title: "Full Stack Developer → DevOps Engineer",
+      start: "May 2024",
+      end: "Present",
+      description:
+        "Building Effective platform for students to learn Data Engineering using Dynamic and Automated Infrastructure provisioning with Terraform and With UI/UX friendly Frontend Application",
+    },
+    {
       company: "Team Tamizhan",
       link: "https://faq.itamizhan.com",
       badges: ["Remote Intern"],
       title: "Full Stack Developer → DevOps Engineer",
       start: "Dec 2022",
-      end: "Present",
+      end: "May 2024",
       description:
         "Engineered cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control. Automation is key—I've implemented Gitlab webhooks and Shell Scripting for effortless deployment. And for reliability, I've optimized hosting with Ubuntu, nginx, pm2, and Docker, ensuring top-notch performance.",
     },

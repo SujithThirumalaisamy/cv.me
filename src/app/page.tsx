@@ -8,6 +8,7 @@ import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import { ResumeIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -77,6 +78,16 @@ export default function Page() {
                   </a>
                 </Button>
               ))}
+              <Button
+                className="size-8 p-1"
+                variant="outline"
+                size="icon"
+                asChild
+              >
+                <a href="https://docs.google.com/document/d/1PxD1EkPGblSDVCnurGzhHsVQJZJMczrFJESSkoBf9tw/export?format=pdf">
+                  <ResumeIcon className="size-4" />
+                </a>
+              </Button>
             </div>
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
               {RESUME_DATA.contact.email ? (
@@ -98,7 +109,7 @@ export default function Page() {
           </Avatar>
         </div>
         <Section>
-          <h2 className="text-xl font-bold">About</h2>
+          <h2 className="text-xl font-bold">About Me</h2>
           <p className="text-pretty font-mono text-sm text-muted-foreground">
             {RESUME_DATA.summary}
           </p>
