@@ -6,7 +6,7 @@ export const RESUME_DATA = {
   location: "Bangalore, Karnataka",
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about:
-    "Jr. Full Stack Engineer focused on learning by experimenting and building products.",
+    "Jr. Full Stack and DevOps Engineer focused on learning by experimenting and building products.",
   summary:
     "Results-driven Freelance/Intern Developer specializing in designing and developing Scalable and Robust Software/Web Applications. Proven expertise in Gitlab/Github version control, auto deployment with webhooks, and hosting. Adept troubleshooter with excellent tech support skills, offering a strong blend of technical proficiency and effective communication.",
   avatarUrl: "https://avatars.githubusercontent.com/u/108384868?v=4",
@@ -82,10 +82,28 @@ export const RESUME_DATA = {
     "DSA",
     "Networking",
     "Infrastructure",
+    "DevOps",
     "Cloud → AWS/Linode",
     "Touch Typing → 100wpm",
   ],
   projects: [
+    {
+      title: "Remote Execution Engine",
+      techStack: [
+        "Project",
+        "Language Runtimes",
+        "Kubernetes",
+        "SQL/NoSQL",
+        "System Design",
+        "Shell Scripting",
+      ],
+      description:
+        "Building a highly scalable remote code execution and testing engine with HA Kubernetes.",
+      link: {
+        label: "Repository",
+        href: "https://github.com/SujithThirumalaisamy/remote-execution-engine",
+      },
+    },
     {
       title: "Collaborative Web based IDE / Compiler",
       techStack: ["Side Project", "TypeScript", "React.js", "Kubernetes"],
@@ -133,23 +151,6 @@ export const RESUME_DATA = {
       description:
         "Building my own homelab with 1Gbps networking and hosting services like Databases and media servers.",
     },
-    {
-      title: "Remote Execution Engine",
-      techStack: [
-        "Project",
-        "Language Runtimes",
-        "Kubernetes",
-        "SQL/NoSQL",
-        "System Design",
-        "Shell Scripting",
-      ],
-      description:
-        "Building a highly scalable remote code execution and testing engine with HA Kubernetes.",
-      link: {
-        label: "Repository",
-        href: "https://github.com/SujithThirumalaisamy/remote-execution-engine",
-      },
-    },
   ],
   opensource: [
     {
@@ -181,10 +182,9 @@ export const RESUME_DATA = {
     {
       title: "app.100xdevs",
       techStack: [
-        "code100x/cms",
         "Next.js",
         "PostgreSQL",
-        "Monorepo",
+        "Monorepo/TurboRepo",
         "Prisma",
       ],
       description:
@@ -197,13 +197,12 @@ export const RESUME_DATA = {
     {
       title: "projects.100xdevs",
       techStack: [
-        "code100x/daily-code",
         "Next.js",
-        "PostgreSQL/Firebase",
+        "PostgreSQL",
         "TurboRepo",
         "Prisma",
         "Notion API",
-        "4 Merges",
+        "6 Merges",
       ],
       description:
         "Slides app of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
@@ -211,6 +210,21 @@ export const RESUME_DATA = {
         label: "projects.100xdevs.com",
         href: "https://projects.100xdevs.com",
       },
+    }, {
+      title: "algo.100xdevs",
+      techStack: [
+        "Next.js",
+        "PostgreSQL/Prisma",
+        "TurboRepo",
+        "Kubernetes",
+      ],
+      description:
+        "Leetcode of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
+      link: {
+        label: "algo.100xdevs.com",
+        href: "https://algo.100xdevs.com",
+      },
     },
+    ,
   ],
 } as const;

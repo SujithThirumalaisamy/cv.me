@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GlobeIcon, Link, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -200,16 +200,19 @@ export default function Page() {
           </div>
         </Section>
         <Section className="print-force-new-page scroll-mb-16 print:pt-6">
-          <h2 className="text-xl font-bold">Open Source Contributions</h2>
+          <a href="https://tangible-sled-e9d.notion.site/Open-Source-Contributions-45fc829ac5354e48b4e691277b61b59d" className="flex items-center gap-2">
+            <h2 className="text-xl font-bold">Open Source Contributions</h2>
+            <Link className="scale-75" />
+          </a>
           <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             {RESUME_DATA.opensource.map((opensource) => {
               return (
                 <ProjectCard
-                  key={opensource.title}
-                  title={opensource.title}
-                  description={opensource.description}
-                  tags={opensource.techStack}
-                  link={"link" in opensource ? opensource.link.href : undefined}
+                  key={opensource?.title}
+                  title={opensource?.title || ""}
+                  description={opensource?.description || ""}
+                  tags={opensource?.techStack || []}
+                  link={opensource?.link?.href || ""}
                 />
               );
             })}
