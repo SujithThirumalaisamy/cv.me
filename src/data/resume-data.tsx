@@ -96,6 +96,8 @@ export const RESUME_DATA = {
         "SQL/NoSQL",
         "System Design",
         "Shell Scripting",
+        "NodeJS",
+        "Microservices",
       ],
       description:
         "Building a highly scalable remote code execution and testing engine with HA Kubernetes.",
@@ -106,9 +108,16 @@ export const RESUME_DATA = {
     },
     {
       title: "Collaborative Web based IDE / Compiler",
-      techStack: ["Side Project", "TypeScript", "React.js", "Kubernetes"],
+      techStack: [
+        "Side Project",
+        "TypeScript",
+        "React.js",
+        "Kubernetes",
+        "Remote Code Execution",
+        "Environment Isolation"
+      ],
       description:
-        "Development of a Web IDE enabled with JudgeO/Kubernetes, for students to access powerful remote development environment",
+        "Web IDE enabled with JudgeO/Kubernetes, for students to access powerful remote development environment",
       link: {
         label: "compile-now.isujith.dev",
         href: "https://compile-now.isujith.dev",
@@ -123,7 +132,7 @@ export const RESUME_DATA = {
         "OracleSQL/PostgreSQL",
       ],
       description:
-        "Refurbished and Deployed persistent Oracle and Postgres SQL Databases using Docker in Ubuntu server running in a old rack server.",
+        "Refurbished/Deployed persistent Oracle/PostgresSQL Databases using Docker-Ubuntu-rack-server.",
     },
     {
       title: "True NAS Storage Infra",
