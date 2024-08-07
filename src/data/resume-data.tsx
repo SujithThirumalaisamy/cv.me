@@ -6,9 +6,9 @@ export const RESUME_DATA = {
   location: "Bangalore, Karnataka",
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about:
-    "Jr. Full Stack and DevOps Engineer focused on learning by experimenting and building products.",
+    "Jr. Full Stack and DevOps Engineer focused on learning through experimentation and product development.",
   summary:
-    "Results-driven Freelance/Intern Developer specializing in designing and developing Scalable and Robust Software/Web Applications. Proven expertise in Gitlab/Github version control, auto deployment with webhooks, and hosting. Adept troubleshooter with excellent tech support skills, offering a strong blend of technical proficiency and effective communication.",
+    "Results-driven Freelance/Intern Developer specializing in designing and developing Scalable and Robust Software/Web Applications. Proven expertise in Gitlab/Github version control, automated deployment with webhooks, and hosting. Adept troubleshooter with excellent tech support skills, offering a strong blend of technical proficiency with effective communication.",
   avatarUrl: "https://avatars.githubusercontent.com/u/108384868?v=4",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
@@ -47,9 +47,9 @@ export const RESUME_DATA = {
       badges: ["Remote Intern"],
       title: "Full Stack Developer → DevOps Engineer",
       start: "May 2024",
-      end: "Present",
+      end: "June 2024",
       description:
-        "Building Effective platform for students to learn Data Engineering using Dynamic and Automated Infrastructure provisioning with Terraform and With UI/UX friendly Frontend Application",
+        "Built an effective platform for students to learn Data Engineering using dynamic and automated infrastructure provisioning with Terraform and with a UI/UX friendly frontend application",
     },
     {
       company: "Team Tamizhan",
@@ -59,7 +59,7 @@ export const RESUME_DATA = {
       start: "Dec 2022",
       end: "May 2024",
       description:
-        "Engineered cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control. Automation is key—I've implemented Gitlab webhooks and Shell Scripting for effortless deployment. And for reliability, I've optimized hosting with Ubuntu, nginx, pm2, and Docker, ensuring top-notch performance.",
+        "Engineered cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control. Automation is key — I implemented Gitlab webhooks and Shell Scripting for effortless deployment. And for reliability, I've optimized hosting with Ubuntu, nginx, pm2, and Docker, ensuring top-notch performance.",
     },
     {
       company: "Team Tamizhan",
@@ -69,22 +69,21 @@ export const RESUME_DATA = {
       start: "Dec 2022",
       end: "Dec 2023",
       description:
-        "Provided expert support in computer diagnostics and troubleshooting, along with networking solutions and virtual assistance. My proactive approach to resolving complex issues and dedication to continuous learning ensures effective problem-solving for clients.",
+        "Provided expert support in computer diagnostics and troubleshooting, along with networking solutions and virtual assistance. My proactive approach to resolving complex issues and dedication to continuous learning ensure effective problem-solving for clients.",
     },
   ],
   skills: [
     "TypeScript",
     "React/Next.js",
-    "Node.js",
+    "Node.js/Express.js",
     "Java with REST",
-    "SQL/NoSQL",
-    "MERN Stack",
-    "DSA",
-    "Networking",
-    "Infrastructure",
-    "DevOps",
-    "Cloud → AWS/Linode",
+    "SQL/NoSQL → Prisma",
+    "DataStructures/Algorithms",
+    "Networking/Infrastructure",
+    "DevOps/Cloud",
     "Touch Typing → 100wpm",
+    "Promhetheus/Grafana",
+    "Microservices"
   ],
   projects: [
     {
@@ -100,7 +99,7 @@ export const RESUME_DATA = {
         "Microservices",
       ],
       description:
-        "Building a highly scalable remote code execution and testing engine with HA Kubernetes.",
+        "Developing a highly scalable remote code execution and testing engine with HA Kubernetes.",
       link: {
         label: "Repository",
         href: "https://github.com/SujithThirumalaisamy/remote-execution-engine",
@@ -117,7 +116,7 @@ export const RESUME_DATA = {
         "Environment Isolation"
       ],
       description:
-        "Web IDE enabled with JudgeO/Kubernetes, for students to access powerful remote development environment",
+        "Web IDE enabled with Judge0/Kubernetes, for students to access powerful remote development environment",
       link: {
         label: "compile-now.isujith.dev",
         href: "https://compile-now.isujith.dev",
@@ -140,11 +139,11 @@ export const RESUME_DATA = {
         "Side Project",
         "True NAS",
         "Proxmox",
-        "Stograge Raid",
+        "Stograge RAID",
         "Subnetting",
       ],
       description:
-        "Built, Configured and Deployed a Raid-1(Mirror) NAS with True NAS. Configured the firewall of the college infrastructure",
+        "Built, Configured and Deployed a Raid-1(Mirror) NAS with True NAS.",
     },
     {
       title: "Homelab",
