@@ -84,7 +84,7 @@ export default function Page() {
                 size="icon"
                 asChild
               >
-                <a href="https://docs.google.com/document/d/1PxD1EkPGblSDVCnurGzhHsVQJZJMczrFJESSkoBf9tw/export?format=pdf">
+                <a href="https://cdn.isujith.dev/Sujith_Resume.pdf">
                   <ResumeIcon className="size-4" />
                 </a>
               </Button>
