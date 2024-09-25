@@ -200,7 +200,10 @@ export default function Page() {
           </div>
         </Section>
         <Section className="print-force-new-page scroll-mb-16 print:pt-6">
-          <a href="https://tangible-sled-e9d.notion.site/Open-Source-Contributions-45fc829ac5354e48b4e691277b61b59d" className="flex items-center gap-2">
+          <a
+            href="https://tangible-sled-e9d.notion.site/Open-Source-Contributions-45fc829ac5354e48b4e691277b61b59d"
+            className="flex items-center gap-2"
+          >
             <h2 className="text-xl font-bold">Open Source Contributions</h2>
             <Link className="scale-75" />
           </a>

@@ -6,9 +6,9 @@ export const RESUME_DATA = {
   location: "Bangalore, Karnataka",
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about:
-    "Jr. Full Stack and DevOps Engineer focused on learning through experimentation and product development.",
+    "Full Stack Developer and DevOps Engineer focused on learning through experimentation and product development.",
   summary:
-    "Results-driven Freelance/Intern Developer specializing in designing and developing Scalable and Robust Software/Web Applications. Proven expertise in Gitlab/Github version control, automated deployment with webhooks, and hosting. Adept troubleshooter with excellent tech support skills, offering a strong blend of technical proficiency with effective communication.",
+    "Passionate Software Developer with a strong foundation in full-stack development, cloud computing, and DevOps practices. Proven track record in designing and implementing scalable, resilient, and user-centric applications. Adept at leveraging modern technologies to solve complex problems and deliver impactful solutions.",
   avatarUrl: "https://avatars.githubusercontent.com/u/108384868?v=4",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
@@ -83,7 +83,7 @@ export const RESUME_DATA = {
     "DevOps/Cloud",
     "Touch Typing → 100wpm",
     "Promhetheus/Grafana",
-    "Microservices"
+    "Microservices",
   ],
   projects: [
     {
@@ -113,7 +113,7 @@ export const RESUME_DATA = {
         "React.js",
         "Kubernetes",
         "Remote Code Execution",
-        "Environment Isolation"
+        "Environment Isolation",
       ],
       description:
         "Web IDE enabled with Judge0/Kubernetes, for students to access powerful remote development environment",
@@ -162,24 +162,18 @@ export const RESUME_DATA = {
   ],
   opensource: [
     {
-      title: "cv",
-      techStack: ["BartoszJarocki/cv", "TypeScript", "Next.js"],
+      title: "Muzer",
+      techStack: ["Next.js", "PostgreSQL", "Websockets"],
       description:
-        "This Project is a fork of BartoszJarocki/cv in github. Actively contributing to the issues raised in GH.",
+        "Collaborative web based youtube playlist. Useful for music lovers in workspaces.",
       link: {
-        label: "cv.jarocki.me",
-        href: "https://cv.jarocki.me",
+        label: "muzer.100xdevs.com",
+        href: "https://muzer.100xdevs.com",
       },
     },
     {
       title: "Twenty",
-      techStack: [
-        "twentyhq/twenty",
-        "Next.js",
-        "PostgreSQL",
-        "Monorepo",
-        "2 Merges",
-      ],
+      techStack: ["twentyhq/twenty", "Next.js", "PostgreSQL", "Monorepo"],
       description:
         "The #1 Open-Source CRM Tool. Actively contributing to the issues raised in GH.",
       link: {
@@ -189,12 +183,7 @@ export const RESUME_DATA = {
     },
     {
       title: "app.100xdevs",
-      techStack: [
-        "Next.js",
-        "PostgreSQL",
-        "Monorepo/TurboRepo",
-        "Prisma",
-      ],
+      techStack: ["Next.js", "PostgreSQL", "Monorepo/TurboRepo", "Prisma"],
       description:
         "Course Platform of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
       link: {
@@ -204,28 +193,17 @@ export const RESUME_DATA = {
     },
     {
       title: "projects.100xdevs",
-      techStack: [
-        "Next.js",
-        "PostgreSQL",
-        "TurboRepo",
-        "Prisma",
-        "Notion API",
-        "6 Merges",
-      ],
+      techStack: ["Next.js", "PostgreSQL", "TurboRepo", "Prisma", "Notion API"],
       description:
         "Slides app of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
       link: {
         label: "projects.100xdevs.com",
         href: "https://projects.100xdevs.com",
       },
-    }, {
+    },
+    {
       title: "algo.100xdevs",
-      techStack: [
-        "Next.js",
-        "PostgreSQL/Prisma",
-        "TurboRepo",
-        "Kubernetes",
-      ],
+      techStack: ["Next.js", "PostgreSQL/Prisma", "TurboRepo", "Kubernetes"],
       description:
         "Leetcode of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
       link: {
@@ -233,6 +211,17 @@ export const RESUME_DATA = {
         href: "https://algo.100xdevs.com",
       },
     },
+    {
+      title: "cv",
+      techStack: ["BartoszJarocki/cv", "TypeScript", "Next.js"],
+      description:
+        "This Project is a fork of BartoszJarocki/cv in github. Actively contributing to the issues raised in GH.",
+      link: {
+        label: "cv.jarocki.me",
+        href: "https://cv.jarocki.me",
+      },
+    },
+
     ,
   ],
 } as const;
