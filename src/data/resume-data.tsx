@@ -42,16 +42,6 @@ export const RESUME_DATA = {
   ],
   work: [
     {
-      company: "Data Vidhya",
-      link: "https://datavidhya.com",
-      badges: ["Remote Intern"],
-      title: "Full Stack Developer → DevOps Engineer",
-      start: "May 2024",
-      end: "June 2024",
-      description:
-        "Built an effective platform for students to learn Data Engineering using dynamic and automated infrastructure provisioning with Terraform and with a UI/UX friendly frontend application",
-    },
-    {
       company: "Team Tamizhan",
       link: "https://faq.itamizhan.com",
       badges: ["Remote Intern"],
