@@ -32,10 +32,10 @@ jobs:
           PAT: ${{ secrets.PAT }}
         run: |
           git clone https://github.com/sujiththirumalaisamy/kubecorner.git
-          cd cv
-          sed -i 's|image: sujiththirumalaisamy/cv:.*|image: sujiththirumalaisamy/qanda-frontend:${{ github.sha }}|' deployment.yml
+          cd kubecorner
+          sed -i 's|image: sujiththirumalaisamy/cv:.*|image: sujiththirumalaisamy/cv:${{ github.sha }}|' cv/deployment.yml
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add frontend.yml
+          git add cv/frontend.yml
           git commit -m "Update image to ${{ github.sha }}"
-          git push https://${PAT}@github.com/sujiththirumalaisamy/kubecorner.git main
+          git push https://${PAT}@github.com/sujiththirumalaisamy/:ubecorner.git main
