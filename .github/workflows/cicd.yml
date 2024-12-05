@@ -36,6 +36,6 @@ jobs:
           sed -i 's|image: sujiththirumalaisamy/cv:.*|image: sujiththirumalaisamy/cv:${{ github.sha }}|' cv/deployment.yml
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add cv/frontend.yml
+          git add cv/deployment.yml
           git commit -m "Update image to ${{ github.sha }}"
           git push https://${PAT}@github.com/sujiththirumalaisamy/:ubecorner.git main
