@@ -1,22 +1,23 @@
-# Use the official lightweight Node.js 18 image.
-# https://hub.docker.com/_/node
-FROM node:18-slim
+FROM node:20-alpine AS builder
 
-# Create and change to the app directory.
 WORKDIR /usr/src/app
 
-# Copy application dependency manifests to the container image.
-# A wildcard is used to ensure both package.json AND package-lock.json are copied.
-COPY package*.json ./
-
-# Install all dependencies.
-RUN npm install
-
-# Copy local code to the container image.
 COPY . .
 
-# Build the app
-RUN npm run build
+RUN yarn install && yarn build
 
-# Run the web service on container startup.
-CMD [ "npm", "start" ]
+FROM node:20-alpine AS runnner
+
+RUN mkdir /.npm && chown -R 1001:1001 /.npm
+
+USER 1001:1001
+WORKDIR /usr/src/app
+
+COPY --from=builder --chown=1001:1001 usr/src/app/.next/standalone ./
+COPY --from=builder --chown=1001:1001 usr/src/app/.next/static ./.next/static
+
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+CMD [ "node", "server.js" ]
