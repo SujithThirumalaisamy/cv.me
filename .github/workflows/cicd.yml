@@ -38,4 +38,4 @@ jobs:
           git config user.email "actions@github.com"
           git add cv/deployment.yml
           git commit -m "Update image to ${{ github.sha }}"
-          git push https://${PAT}@github.com/sujiththirumalaisamy/:ubecorner.git main
+          git push https://${PAT}@github.com/sujiththirumalaisamy/kubecorner.git main
