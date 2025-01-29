@@ -42,9 +42,19 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "2ndSight.ai",
+      link: "https://www.2ndsight.ai/",
+      badges: ["Software Engineer"],
+      title: "WebRTC + Full Stack Developer",
+      start: "Oct 2024",
+      end: "Present",
+      description:
+        "Developed a real-time AI interview platform with live transcription, audio processing, and TTS, leveraging AWS (S3 File Gateway, Lambda, EventBridge, CloudWatch, DynamoDB) for scalability and reliability.",
+    },
+    {
       company: "Team Tamizhan",
       link: "https://faq.itamizhan.com",
-      badges: ["Remote Intern"],
+      badges: ["Remote"],
       title: "Full Stack Developer → DevOps Engineer",
       start: "Dec 2022",
       end: "May 2024",
@@ -54,7 +64,7 @@ export const RESUME_DATA = {
     {
       company: "Team Tamizhan",
       link: "https://faq.itamizhan.com",
-      badges: ["Remote Intern"],
+      badges: ["Remote"],
       title: "Tech Consultant",
       start: "Dec 2022",
       end: "Dec 2023",
@@ -107,10 +117,6 @@ export const RESUME_DATA = {
       ],
       description:
         "Web IDE enabled with Judge0/Kubernetes, for students to access powerful remote development environment",
-      link: {
-        label: "compile-now.isujith.dev",
-        href: "https://compile-now.isujith.dev",
-      },
     },
     {
       title: "Centralised Server for College Lab",
