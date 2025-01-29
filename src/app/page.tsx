@@ -78,16 +78,16 @@ export default function Page() {
                   </a>
                 </Button>
               ))}
-              <Button
-                className="size-8 p-1"
-                variant="outline"
-                size="icon"
-                asChild
-              >
-                <a href="https://cdn.isujith.dev/Sujith_Resume.pdf">
-                  <ResumeIcon className="size-4" />
-                </a>
-              </Button>
+              {/* <Button */}
+              {/*   className="size-8 p-1" */}
+              {/*   variant="outline" */}
+              {/*   size="icon" */}
+              {/*   asChild */}
+              {/* > */}
+              {/*   <a href="https://cdn.isujith.dev/Sujith_Resume.pdf"> */}
+              {/*     <ResumeIcon className="size-4" /> */}
+              {/*   </a> */}
+              {/* </Button> */}
             </div>
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
               {RESUME_DATA.contact.email ? (
@@ -154,26 +154,26 @@ export default function Page() {
             );
           })}
         </Section>
-        <Section>
-          <h2 className="text-xl font-bold">Education</h2>
-          {RESUME_DATA.education.map((education) => {
-            return (
-              <Card key={education.school}>
-                <CardHeader>
-                  <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="font-semibold leading-none">
-                      {education.school}
-                    </h3>
-                    <div className="text-sm tabular-nums text-gray-500">
-                      {education.start} - {education.end}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="mt-2">{education.degree}</CardContent>
-              </Card>
-            );
-          })}
-        </Section>
+        {/* <Section> */}
+        {/*   <h2 className="text-xl font-bold">Education</h2> */}
+        {/*   {RESUME_DATA.education.map((education) => { */}
+        {/*     return ( */}
+        {/*       <Card key={education.school}> */}
+        {/*         <CardHeader> */}
+        {/*           <div className="flex items-center justify-between gap-x-2 text-base"> */}
+        {/*             <h3 className="font-semibold leading-none"> */}
+        {/*               {education.school} */}
+        {/*             </h3> */}
+        {/*             <div className="text-sm tabular-nums text-gray-500"> */}
+        {/*               {education.start} - {education.end} */}
+        {/*             </div> */}
+        {/*           </div> */}
+        {/*         </CardHeader> */}
+        {/*         <CardContent className="mt-2">{education.degree}</CardContent> */}
+        {/*       </Card> */}
+        {/*     ); */}
+        {/*   })} */}
+        {/* </Section> */}
         <Section>
           <h2 className="text-xl font-bold">Skills</h2>
           <div className="flex flex-wrap gap-1">
