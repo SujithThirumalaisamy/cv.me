@@ -44,8 +44,8 @@ export const RESUME_DATA = {
     {
       company: "2ndSight.ai",
       link: "https://www.2ndsight.ai/",
-      badges: ["Software Engineer"],
-      title: "WebRTC + Full Stack Developer",
+      badges: ["Remote"],
+      title: "Full Stack Engineer",
       start: "Oct 2024",
       end: "Present",
       description:
@@ -74,16 +74,16 @@ export const RESUME_DATA = {
   ],
   skills: [
     "TypeScript",
-    "React/Next.js",
-    "Node.js/Express.js",
-    "Java with REST",
-    "SQL/NoSQL → Prisma",
-    "DataStructures/Algorithms",
+    "GoLang",
+    "Next.js",
+    "Express/NestJS",
+    "SQL/NoSQL/Prisma",
     "Networking/Infrastructure",
-    "DevOps/Cloud",
-    "Touch Typing → 100wpm",
-    "Promhetheus/Grafana",
-    "Microservices",
+    "DevOps/Cloud/Kubernetes",
+    "CI/CD",
+    "Touch Typing (130 WPM)",
+    "Prometheus/Grafana",
+    "Microservices"
   ],
   projects: [
     {
@@ -106,19 +106,6 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "Collaborative Web based IDE / Compiler",
-      techStack: [
-        "Side Project",
-        "TypeScript",
-        "React.js",
-        "Kubernetes",
-        "Remote Code Execution",
-        "Environment Isolation",
-      ],
-      description:
-        "Web IDE enabled with Judge0/Kubernetes, for students to access powerful remote development environment",
-    },
-    {
       title: "Centralised Server for College Lab",
       techStack: [
         "Side Project",
@@ -130,27 +117,13 @@ export const RESUME_DATA = {
         "Refurbished/Deployed persistent Oracle/PostgresSQL Databases using Docker-Ubuntu-rack-server.",
     },
     {
-      title: "True NAS Storage Infra",
-      techStack: [
-        "Side Project",
-        "True NAS",
-        "Proxmox",
-        "Stograge RAID",
-        "Subnetting",
-      ],
-      description:
-        "Built, Configured and Deployed a Raid-1(Mirror) NAS with True NAS.",
-    },
-    {
       title: "Homelab",
       techStack: [
-        "Side Project",
         "Networking",
         "Kubernetes",
-        "SQL/NoSQL",
-        "DDNS/WOL",
-        "Safe Remote Access",
-        "PiHole DNS",
+        "Remote Access",
+        "DNS",
+        "Terraform",
       ],
       description:
         "Building my own homelab with 1Gbps networking and hosting services like Databases and media servers.",
