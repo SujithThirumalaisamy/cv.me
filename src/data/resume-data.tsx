@@ -44,7 +44,7 @@ export const RESUME_DATA = {
     {
       company: "2ndSight.ai",
       link: "https://www.2ndsight.ai/",
-      badges: ["Remote"],
+      badges: ["Remote-Freelancer"],
       title: "Full Stack Engineer",
       start: "Oct 2024",
       end: "Present",
