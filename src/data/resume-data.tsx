@@ -46,8 +46,8 @@ export const RESUME_DATA = {
       link: "https://www.2ndsight.ai/",
       badges: ["Remote-Freelancer"],
       title: "Full Stack Engineer",
-      start: "Oct 2024",
-      end: "Present",
+      start: "Nov 2024",
+      end: "Jan 2025",
       description:
         "Developed a real-time AI interview platform with live transcription, audio processing, and TTS, leveraging AWS (S3 File Gateway, Lambda, EventBridge, CloudWatch, DynamoDB) for scalability and reliability.",
     },
@@ -55,21 +55,11 @@ export const RESUME_DATA = {
       company: "Team Tamizhan",
       link: "https://faq.itamizhan.com",
       badges: ["Remote"],
-      title: "Full Stack Developer → DevOps Engineer",
+      title: "Full Stack/DevOps Engineer",
       start: "Dec 2022",
       end: "May 2024",
       description:
         "Engineered cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control. Automation is key — I implemented Gitlab webhooks and Shell Scripting for effortless deployment. And for reliability, I've optimized hosting with Ubuntu, nginx, pm2, and Docker, ensuring top-notch performance.",
-    },
-    {
-      company: "Team Tamizhan",
-      link: "https://faq.itamizhan.com",
-      badges: ["Remote"],
-      title: "Tech Consultant",
-      start: "Dec 2022",
-      end: "Dec 2023",
-      description:
-        "Provided expert support in computer diagnostics and troubleshooting, along with networking solutions and virtual assistance. My proactive approach to resolving complex issues and dedication to continuous learning ensure effective problem-solving for clients.",
     },
   ],
   skills: [
