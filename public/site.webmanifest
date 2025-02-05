@@ -1,0 +1,14 @@
+{
+  "name": "Sujith | Software Engineer & DevOps Specialist",
+  "short_name": "Software Engineer and DevOps Specialist focused on cloud, automation, and full-stack development.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "display": "standalone"
+}

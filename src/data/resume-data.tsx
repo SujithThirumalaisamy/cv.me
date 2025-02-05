@@ -73,7 +73,7 @@ export const RESUME_DATA = {
     "CI/CD",
     "Touch Typing (130 WPM)",
     "Prometheus/Grafana",
-    "Microservices"
+    "Microservices",
   ],
   projects: [
     {
