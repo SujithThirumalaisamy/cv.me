@@ -15,6 +15,7 @@ WORKDIR /usr/src/app
 
 COPY --from=builder --chown=1001:1001 usr/src/app/.next/standalone ./
 COPY --from=builder --chown=1001:1001 usr/src/app/.next/static ./.next/static
+COPY --from=builder --chown=1001:1001 usr/src/app/public ./public
 
 ENV NODE_ENV=production
 ENV PORT=3000
