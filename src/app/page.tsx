@@ -8,6 +8,8 @@ import { GlobeIcon, Link, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
+import GitHubCalendar from "react-github-calendar";
+import HeatMap from "@/components/heat-map";
 //import { ResumeIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
@@ -111,6 +113,7 @@ export default function Page() {
             <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
           </Avatar>
         </div>
+        <HeatMap />
         <Section>
           <h2 className="text-xl font-bold">About Me</h2>
           <p className="text-pretty font-mono text-sm text-muted-foreground">
