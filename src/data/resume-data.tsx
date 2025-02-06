@@ -49,7 +49,7 @@ export const RESUME_DATA = {
       start: "Nov 2024",
       end: "Jan 2025",
       description:
-        "Developed a real-time AI interview platform with live transcription, audio processing, and TTS, leveraging AWS (S3 File Gateway, Lambda, EventBridge, CloudWatch, DynamoDB) for scalability and reliability.",
+        "Developed a real-time AI interview platform with live transcription, audio processing, and TTS."
     },
     {
       company: "Team Tamizhan",
@@ -59,7 +59,7 @@ export const RESUME_DATA = {
       start: "Dec 2022",
       end: "May 2024",
       description:
-        "Engineered cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control. Automation is key — I implemented Gitlab webhooks and Shell Scripting for effortless deployment. And for reliability, I've optimized hosting with Ubuntu, nginx, pm2, and Docker, ensuring top-notch performance.",
+        "Cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control and CI/CD."
     },
   ],
   skills: [
@@ -68,24 +68,24 @@ export const RESUME_DATA = {
     "Next.js",
     "Express/NestJS",
     "SQL/NoSQL/Prisma",
-    "Networking/Infrastructure",
+    "Helm",
     "DevOps/Cloud/Kubernetes",
     "CI/CD",
     "Touch Typing (130 WPM)",
     "Prometheus/Grafana",
     "Microservices",
+    "Backend",
+    "Networking/Infrastructure",
+    "GitOps",
+    "Shell Scripting",
   ],
   projects: [
     {
       title: "Remote Execution Engine",
       techStack: [
-        "Project",
         "Language Runtimes",
         "Kubernetes",
-        "SQL/NoSQL",
-        "System Design",
         "Shell Scripting",
-        "NodeJS",
         "Microservices",
       ],
       description:
@@ -98,25 +98,24 @@ export const RESUME_DATA = {
     {
       title: "Centralised Server for College Lab",
       techStack: [
-        "Side Project",
         "Docker",
         "Portainer",
         "OracleSQL/PostgreSQL",
       ],
       description:
-        "Refurbished/Deployed persistent Oracle/PostgresSQL Databases using Docker-Ubuntu-rack-server.",
+        "Deployed persistent Oracle/PostgresSQL Databases using Docker-Ubuntu-rack-server.",
     },
     {
       title: "Homelab",
       techStack: [
-        "Networking",
         "Kubernetes",
         "Remote Access",
         "DNS",
         "Terraform",
+        "IAAC"
       ],
       description:
-        "Building my own homelab with 1Gbps networking and hosting services like Databases and media servers.",
+        "Building my own homelab where I host and tinker with services like Databases, media servers and DNS.",
     },
   ],
   opensource: [
@@ -124,7 +123,7 @@ export const RESUME_DATA = {
       title: "Muzer",
       techStack: ["Next.js", "PostgreSQL", "Websockets"],
       description:
-        "Collaborative web based youtube playlist. Useful for music lovers in workspaces.",
+        "Collaborative web based youtube playlist.",
       link: {
         label: "muzer.100xdevs.com",
         href: "https://muzer.100xdevs.com",
@@ -134,7 +133,7 @@ export const RESUME_DATA = {
       title: "Twenty",
       techStack: ["twentyhq/twenty", "Next.js", "PostgreSQL", "Monorepo"],
       description:
-        "The #1 Open-Source CRM Tool. Actively contributing to the issues raised in GH.",
+        "The #1 Open-Source CRM Tool. OS platform to manage your customers",
       link: {
         label: "twenty.com",
         href: "https://twenty.com",
@@ -144,7 +143,7 @@ export const RESUME_DATA = {
       title: "app.100xdevs",
       techStack: ["Next.js", "PostgreSQL", "Monorepo/TurboRepo", "Prisma"],
       description:
-        "Course Platform of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
+        "A complete content manager system for course creator.",
       link: {
         label: "app.100xdevs.com",
         href: "https://app.100xdevs.com",
@@ -154,7 +153,7 @@ export const RESUME_DATA = {
       title: "projects.100xdevs",
       techStack: ["Next.js", "PostgreSQL", "TurboRepo", "Prisma", "Notion API"],
       description:
-        "Slides app of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
+        "A complete notion based content/slides viewer.",
       link: {
         label: "projects.100xdevs.com",
         href: "https://projects.100xdevs.com",
@@ -164,7 +163,7 @@ export const RESUME_DATA = {
       title: "algo.100xdevs",
       techStack: ["Next.js", "PostgreSQL/Prisma", "TurboRepo", "Kubernetes"],
       description:
-        "Leetcode of Harkirat Singh. Started actively participating in discussions in issues of the GH.",
+        "A complete code cramming platform.",
       link: {
         label: "algo.100xdevs.com",
         href: "https://algo.100xdevs.com",
@@ -174,7 +173,7 @@ export const RESUME_DATA = {
       title: "cv",
       techStack: ["BartoszJarocki/cv", "TypeScript", "Next.js"],
       description:
-        "This Project is a fork of BartoszJarocki/cv in github. Actively contributing to the issues raised in GH.",
+        "The project where you are. Fork of BartoszJarocki/cv in github.",
       link: {
         label: "cv.jarocki.me",
         href: "https://cv.jarocki.me",
