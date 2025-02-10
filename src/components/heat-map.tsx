@@ -25,7 +25,7 @@ export default function HeatMap() {
         }}
         totalCount={totalCommits}
         // @ts-ignore
-        weekStart={new Date().getDay() + 1}
+        weekStart={(new Date().getDay() || 7) - 1}
       />
     </Section>
   );
