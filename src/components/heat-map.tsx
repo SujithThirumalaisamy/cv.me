@@ -21,10 +21,11 @@ export default function HeatMap() {
         colorScheme={theme && theme === "dark" ? "dark" : "light"}
         transformData={(data) => {
           setTotalCommits(data.reduce((acc, curr) => acc + curr.count, 0));
-          return isLeapYear ? data.slice(79, 366) : data.slice(78, 365);
+          return !isLeapYear ? data.slice(79, 366) : data.slice(78, 365);
         }}
         totalCount={totalCommits}
-        weekStart={1}
+        // @ts-ignore
+        weekStart={new Date().getDay() + 1}
       />
     </Section>
   );

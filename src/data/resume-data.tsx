@@ -49,7 +49,7 @@ export const RESUME_DATA = {
       start: "Nov 2024",
       end: "Jan 2025",
       description:
-        "Developed a real-time AI interview platform with live transcription, audio processing, and TTS."
+        "Developed a real-time AI interview platform with live transcription, audio processing, and TTS.",
     },
     {
       company: "Team Tamizhan",
@@ -59,7 +59,7 @@ export const RESUME_DATA = {
       start: "Dec 2022",
       end: "May 2024",
       description:
-        "Cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control and CI/CD."
+        "Cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control and CI/CD.",
     },
   ],
   skills: [
@@ -97,23 +97,13 @@ export const RESUME_DATA = {
     },
     {
       title: "Centralised Server for College Lab",
-      techStack: [
-        "Docker",
-        "Portainer",
-        "OracleSQL/PostgreSQL",
-      ],
+      techStack: ["Docker", "Portainer", "OracleSQL/PostgreSQL"],
       description:
         "Deployed persistent Oracle/PostgresSQL Databases using Docker-Ubuntu-rack-server.",
     },
     {
       title: "Homelab",
-      techStack: [
-        "Kubernetes",
-        "Remote Access",
-        "DNS",
-        "Terraform",
-        "IAAC"
-      ],
+      techStack: ["Kubernetes", "Remote Access", "DNS", "Terraform", "IAAC"],
       description:
         "Building my own homelab where I host and tinker with services like Databases, media servers and DNS.",
     },
@@ -122,8 +112,7 @@ export const RESUME_DATA = {
     {
       title: "Muzer",
       techStack: ["Next.js", "PostgreSQL", "Websockets"],
-      description:
-        "Collaborative web based youtube playlist.",
+      description: "Collaborative web based youtube playlist.",
       link: {
         label: "muzer.100xdevs.com",
         href: "https://muzer.100xdevs.com",
@@ -142,8 +131,7 @@ export const RESUME_DATA = {
     {
       title: "app.100xdevs",
       techStack: ["Next.js", "PostgreSQL", "Monorepo/TurboRepo", "Prisma"],
-      description:
-        "A complete content manager system for course creator.",
+      description: "A complete content manager system for course creator.",
       link: {
         label: "app.100xdevs.com",
         href: "https://app.100xdevs.com",
@@ -152,8 +140,7 @@ export const RESUME_DATA = {
     {
       title: "projects.100xdevs",
       techStack: ["Next.js", "PostgreSQL", "TurboRepo", "Prisma", "Notion API"],
-      description:
-        "A complete notion based content/slides viewer.",
+      description: "A complete notion based content/slides viewer.",
       link: {
         label: "projects.100xdevs.com",
         href: "https://projects.100xdevs.com",
@@ -162,8 +149,7 @@ export const RESUME_DATA = {
     {
       title: "algo.100xdevs",
       techStack: ["Next.js", "PostgreSQL/Prisma", "TurboRepo", "Kubernetes"],
-      description:
-        "A complete code cramming platform.",
+      description: "A complete code cramming platform.",
       link: {
         label: "algo.100xdevs.com",
         href: "https://algo.100xdevs.com",
