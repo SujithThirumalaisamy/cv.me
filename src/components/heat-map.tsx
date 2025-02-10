@@ -24,8 +24,7 @@ export default function HeatMap() {
           return !isLeapYear ? data.slice(79, 366) : data.slice(78, 365);
         }}
         totalCount={totalCommits}
-        // @ts-ignore
-        weekStart={(new Date().getDay() || 7) - 1}
+        weekStart={(new Date().getDay() || 7) - 1 as any}
       />
     </Section>
   );
