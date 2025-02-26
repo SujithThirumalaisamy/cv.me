@@ -9,10 +9,7 @@ const GitHubUsername = "sujiththirumalaisamy";
 export default function HeatMap() {
   const { theme } = useTheme();
   const [totalCommits, setTotalCommits] = useState(0);
-  const isLeapYear =
-    new Date().getFullYear() % 4 === 0 &&
-    (new Date().getFullYear() % 100 !== 0 ||
-      new Date().getFullYear() % 400 === 0);
+
   return (
     <Section className="mt-8 rounded-[0.5rem] border-2 border-secondary p-2 text-sm">
       <GitHubCalendar
@@ -21,10 +18,11 @@ export default function HeatMap() {
         colorScheme={theme && theme === "dark" ? "dark" : "light"}
         transformData={(data) => {
           setTotalCommits(data.reduce((acc, curr) => acc + curr.count, 0));
-          return !isLeapYear ? data.slice(79, 366) : data.slice(78, 365);
+          // 287 is the number of days visible in the heatmap without scroll 
+          return data.slice(data.length - 287, data.length);
         }}
         totalCount={totalCommits}
-        weekStart={new Date().getDay() % 7 as any}
+        weekStart={new Date().getDay() + 1 as any}
       />
     </Section>
   );
