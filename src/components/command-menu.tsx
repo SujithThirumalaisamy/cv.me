@@ -21,7 +21,7 @@ interface Props {
 
 export const CommandMenu = ({ links }: Props) => {
   const [open, setOpen] = React.useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
@@ -65,8 +65,12 @@ export const CommandMenu = ({ links }: Props) => {
               <span>Print</span>
             </CommandItem>
             <CommandItem
-              onSelect={(prev) => {
-                theme === "dark" ? setTheme("light") : setTheme("dark");
+              onSelect={() => {
+                let currentTheme = theme === "dark" ? "dark" : "light";
+                if (resolvedTheme === "dark") {
+                  currentTheme = "dark";
+                }
+                setTheme(currentTheme === "dark" ? "light" : "dark");
                 setOpen(false);
               }}
             >
