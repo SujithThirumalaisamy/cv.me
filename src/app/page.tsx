@@ -28,7 +28,9 @@ export default async function Page() {
               <h1 className="text-2xl font-bold">
                 {RESUME_DATA.name}
                 <a href="mailto:sujithmasi1267@gmail.com">
-                  <Badge className="m-2 cursor-pointer p-1 py-0">Hire Me!</Badge>
+                  <Badge className="m-2 cursor-pointer p-1 py-0">
+                    Hire Me!
+                  </Badge>
                 </a>
               </h1>
               <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground">
@@ -96,7 +98,9 @@ export default async function Page() {
               <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
                 {RESUME_DATA.contact.email ? (
                   <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                    <span className="underline">{RESUME_DATA.contact.email}</span>
+                    <span className="underline">
+                      {RESUME_DATA.contact.email}
+                    </span>
                   </a>
                 ) : null}
                 {RESUME_DATA.contact.tel ? (
@@ -123,7 +127,10 @@ export default async function Page() {
             <h2 className="text-xl font-bold">Work Experience</h2>
             {RESUME_DATA.work.map((work) => {
               return (
-                <Card key={work.company} className="bg-gray-50 border light:border-gray-200">
+                <Card
+                  key={work.company}
+                  className="light:border-gray-200 border bg-gray-50"
+                >
                   <CardHeader>
                     <div className="flex items-center justify-between gap-x-2 text-base">
                       <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">

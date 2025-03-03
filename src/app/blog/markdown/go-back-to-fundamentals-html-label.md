@@ -1,25 +1,25 @@
 ---
-title: 'Go back to fundamentals: HTML label'
-description: 'Rediscover the power of the HTML label element by looking at how we can use it and its impact on accessibility.'
+title: "Go back to fundamentals: HTML label"
+description: "Rediscover the power of the HTML label element by looking at how we can use it and its impact on accessibility."
 datetime: 2024-10-24T20:23:27.883Z
-tags: ['HTML', 'Accessibility']
+tags: ["HTML", "Accessibility"]
 ---
 
-Chances are you know `<input>` HTML elements should be accompanied by a `<label>`. That's part of *semantic HTML*. I learned about that when I built my first HTML forms using vanilla PHP in 2015—understand hand-made procedural PHP 😅.
+Chances are you know `<input>` HTML elements should be accompanied by a `<label>`. That's part of _semantic HTML_. I learned about that when I built my first HTML forms using vanilla PHP in 2015—understand hand-made procedural PHP 😅.
 
 At that time, I had to write quite evolved HTML code to submit forms to my backend.
 
 ```html
 <form method="POST" action="/user/signup">
-    <input type="hidden" name="csrf" value="..." />
+  <input type="hidden" name="csrf" value="..." />
 
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" />
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" />
 
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" />
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" />
 
-    <button type="submit">Submit</button>
+  <button type="submit">Submit</button>
 </form>
 ```
 
@@ -63,37 +63,37 @@ Many `<label>` elements can refer to a single `<input>`. The mdn documentation a
 If you use React, I recommend using the new [`useId`](https://react.dev/reference/react/useId) hook, if you don't have to set a specific id.
 
 ```tsx
-import { useId } from 'react';
+import { useId } from "react";
 
 function Form() {
-    const inputId = useId();
+  const inputId = useId();
 
-    return (
-        <>
-            <label htmlFor={inputId}>Username</label>
-            <input id={inputId} />
-        </>
-    );
+  return (
+    <>
+      <label htmlFor={inputId}>Username</label>
+      <input id={inputId} />
+    </>
+  );
 }
 ```
 
 You may have several inputs in the same component, and calling the `useId` hook many times might feel redundant. We can solve it using a single generated id as the prefix for all ids.
 
 ```tsx
-import { useId } from 'react';
+import { useId } from "react";
 
 function Form() {
-    const inputRootId = useId();
+  const inputRootId = useId();
 
-    return (
-        <>
-            <label htmlFor={`${inputRootId}-username`}>Username</label>
-            <input id={`${inputRootId}-username`} />
+  return (
+    <>
+      <label htmlFor={`${inputRootId}-username`}>Username</label>
+      <input id={`${inputRootId}-username`} />
 
-            <label htmlFor={`${inputRootId}-password`}>Password</label>
-            <input id={`${inputRootId}-password`} />
-        </>
-    );
+      <label htmlFor={`${inputRootId}-password`}>Password</label>
+      <input id={`${inputRootId}-password`} />
+    </>
+  );
 }
 ```
 
@@ -104,9 +104,9 @@ That may seem strange, but that's totally valid HTML. Doing so removes the need 
 ```html
 <!-- ✅ Great and even shorter -->
 <label>
-    Username
+  Username
 
-    <input />
+  <input />
 </label>
 ```
 
@@ -116,24 +116,24 @@ You must adapt your CSS code, but that's a great solution working without much e
 
 You don't need to use this option often, but I recently found a use case. At Twenty, we had a `<Toggle />` component that was visually working but couldn't be used without a mouse. [I suggested a change](https://github.com/twentyhq/twenty/pull/7761/files), based on the code of the [`<Switch />` component of Chakra UI](https://v2.chakra-ui.com/docs/components/switch/usage#usage).
 
-Basically, the component creates an invisible `<input>` element and wraps it inside a `<label>`. The `<label>` container also contains the required elements to give a *switch* look. If you provide an `id` to the input, you can have other `<label>` elements targetting the input!
+Basically, the component creates an invisible `<input>` element and wraps it inside a `<label>`. The `<label>` container also contains the required elements to give a _switch_ look. If you provide an `id` to the input, you can have other `<label>` elements targetting the input!
 
 ```html
 <!-- ✅ HTML has no limits -->
 <label for="toggle-notifications">Notifications</label>
 
 <label>
-    <input id="toggle-notifications" type="checkbox" class="sr-only" />
+  <input id="toggle-notifications" type="checkbox" class="sr-only" />
 
-    <span>
-        <!-- Visual elements to give a *switch* look -->
-    </span>
+  <span>
+    <!-- Visual elements to give a *switch* look -->
+  </span>
 </label>
 ```
 
 <AppAlert type="warning">
 
-Be careful! `<label>` elements only accept [*phrasing content*](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content). It means that elements like `<div>` or `<p>` – which are not phrasing content – are prohibited! We can use `<input>` and `<span>` as both are phrasing content.
+Be careful! `<label>` elements only accept [_phrasing content_](https://developer.mozilla.org/en-US/docs/Web/HTML/Content_categories#phrasing_content). It means that elements like `<div>` or `<p>` – which are not phrasing content – are prohibited! We can use `<input>` and `<span>` as both are phrasing content.
 
 It's also important to mention that `<label>` elements can't be nested. That's why they are sibblings in my previous example.
 
@@ -144,13 +144,13 @@ This trick inspired me to write this article in honor of the `<label>` element. 
 ```html
 <!-- ✅ Make the HTML smaller -->
 <label>
-    <input type="checkbox" class="sr-only" />
+  <input type="checkbox" class="sr-only" />
 
-    <span>
-        <!-- Visual elements to give a *switch* look -->
-    </span>
+  <span>
+    <!-- Visual elements to give a *switch* look -->
+  </span>
 
-    <span>Notifications</span>
+  <span>Notifications</span>
 </label>
 ```
 
