@@ -3,10 +3,11 @@ import GitHubCalendar from "react-github-calendar";
 import { Section } from "./ui/section";
 import { useTheme } from "next-themes";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 
 const GitHubUsername = "sujiththirumalaisamy";
 
-export default function HeatMap() {
+function HeatMap() {
   const { theme } = useTheme();
   const [totalCommits, setTotalCommits] = useState(0);
 
@@ -27,3 +28,7 @@ export default function HeatMap() {
     </Section>
   );
 }
+
+export default dynamic(() => Promise.resolve(HeatMap), {
+  ssr: false,
+});
