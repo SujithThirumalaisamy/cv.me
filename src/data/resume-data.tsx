@@ -43,6 +43,7 @@ export const RESUME_DATA = {
   work: [
     {
       company: "InterspectAI",
+      link: "",
       badges: ["Remote"],
       title: "Full Stack Engineer",
       start: "Nov 2024",
