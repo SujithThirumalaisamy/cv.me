@@ -27,15 +27,18 @@ jobs:
           push: true
           tags: sujiththirumalaisamy/cv:${{ github.sha }}
 
-      - name: Clone kubecorner repo, update, and push
-        env:
-          PAT: ${{ secrets.PAT }}
+      - name: Checkout ops repo
+        uses: actions/checkout@v4
+        with:
+          repository: sujiththirumalaisamy/kubecorner
+          token: ${{ secrets.PAT }}
+          path: ops
+      - name: Update image tag and push
+        working-directory: ops
         run: |
-          git clone https://github.com/sujiththirumalaisamy/kubecorner.git
-          cd kubecorner
           sed -i 's|image: sujiththirumalaisamy/cv:.*|image: sujiththirumalaisamy/cv:${{ github.sha }}|' cv/deployment.yml
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
           git add cv/deployment.yml
-          git commit -m "Update image to ${{ github.sha }}"
-          git push https://${PAT}@github.com/sujiththirumalaisamy/kubecorner.git main
+          git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
+          git push origin main
