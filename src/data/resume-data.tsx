@@ -42,6 +42,16 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "CrackedDevs",
+      link: "https://crackeddevs.com",
+      badges: ["US Remote"],
+      title: "Full Stack Engineer",
+      start: "May 2025",
+      end: "Present",
+      description:
+        "Bulding a application to the folks who love to customize thier subliminals.",
+    },
+    {
       company: "InterspectAI",
       link: "",
       badges: ["Freelance"],
