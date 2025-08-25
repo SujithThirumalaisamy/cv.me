@@ -190,7 +190,6 @@ export const RESUME_DATA = {
         href: "https://cv.jarocki.me",
       },
     },
-
     ,
   ],
 } as const;
