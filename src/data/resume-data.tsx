@@ -9,7 +9,7 @@ export const RESUME_DATA = {
     "Full Stack Developer and DevOps Engineer focused on learning through experimentation and product development.",
   summary:
     "Passionate Software Developer with a strong foundation in full-stack development, cloud computing, and DevOps practices. Proven track record in designing and implementing scalable, resilient, and user-centric applications. Adept at leveraging modern technologies to solve complex problems and deliver impactful solutions.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/108384868?v=4",
+  avatarUrl: "https://cdn.isujith.dev/profile.jpg",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
     email: "sujithmasi1267@gmail.com",
