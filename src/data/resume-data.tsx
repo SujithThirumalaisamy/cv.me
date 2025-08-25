@@ -3,7 +3,7 @@ import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 export const RESUME_DATA = {
   name: "Sujith Thirumalaisamy",
   initials: "ST",
-  location: "Bangalore, Karnataka",
+  location: "Coimbatore, Tamil Nadu",
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about:
     "Full Stack Developer and DevOps Engineer focused on learning through experimentation and product development.",
