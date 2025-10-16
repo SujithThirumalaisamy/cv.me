@@ -79,3 +79,7 @@
 .print-force-new-page {
   page-break-before: always;
 }
+
+.code-line {
+  color: white;
+}

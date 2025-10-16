@@ -17,9 +17,9 @@ interface BlogFooterProps {
 }
 
 const config = {
-  title: "🚀 Stay Curious, Keep Exploring!",
+  title: "Stay Curious, Keep Exploring!",
   description:
-    "Thanks for stopping by! I share insights on DevOps, Software Engineering, and AI, sprinkled with homelab adventures and tech experiments.",
+    "Thanks for stopping by! I share insights on DevOps, and Software Engineering, sprinkled with homelab adventures and tech experiments.",
   links: [
     {
       label: "isujith.dev",
@@ -42,7 +42,7 @@ const config = {
       icon: <MailIcon className="size-4" />,
     },
   ],
-  tagline: "💡 Code. Automate. Optimize. 🚀",
+  tagline: "Code. Automate. Optimize.",
 };
 
 export default function Blog({
@@ -102,7 +102,7 @@ function BlogHeader({
         {tags.map((tag: string) => (
           <Badge
             key={tag}
-            className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-white transition-colors duration-100 ease-out hover:bg-[#d4994a] dark:border-[#d18521] dark:bg-[#d18521]"
+            className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-white dark:border-[#d18521] dark:bg-[#d18521]"
           >
             {tag}
           </Badge>
