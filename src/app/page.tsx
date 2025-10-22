@@ -153,7 +153,7 @@ export default async function Page() {
                 Latest Writings
               </h2>
               <a
-                href="/blog"
+                href="/blogs"
                 className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 View all posts
@@ -211,7 +211,7 @@ export default async function Page() {
                         className="bg-primary px-2 py-1 text-xs opacity-0 transition-opacity duration-300 hover:bg-primary/90 group-hover:opacity-100"
                         asChild
                       >
-                        <a href={`/blog/${latestBlog.slug}`}>
+                        <a href={`/blogs/${latestBlog.slug}`}>
                           Read More
                           <ArrowRightIcon className="ml-1 h-3 w-3" />
                         </a>
