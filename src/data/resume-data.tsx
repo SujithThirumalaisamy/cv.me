@@ -90,14 +90,9 @@ export const RESUME_DATA = {
     "Shell Scripting",
   ],
   projects: [
-     {
+    {
       title: "Kubecorner",
-      techStack: [
-        "ArgoCD",
-        "Kubernetes",
-        "DevOps",
-        "Monitoring",
-      ],
+      techStack: ["ArgoCD", "Kubernetes", "DevOps", "Monitoring"],
       description:
         "Kubernetes Manifest repository for all of my projects which is connected to ArgoCD for CI/CD.",
       link: {

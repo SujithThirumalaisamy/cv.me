@@ -1,4 +1,3 @@
-"use server";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -21,7 +20,7 @@ function parseMarkdown(fileContent: string): BlogMatterWithContent {
   return { ...data, content };
 }
 
-const postsDirectory = path.join(process.cwd(), "src/app/blog/markdown");
+const postsDirectory = path.join(process.cwd(), "src/app/blogs/markdown");
 
 export async function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
@@ -29,4 +28,27 @@ export async function getPostData(slug: string) {
   const matterResult = parseMarkdown(fileContent);
 
   return matterResult;
+}
+
+export async function getAllBlogs() {
+  const markdownFiles = await fs.promises.readdir(postsDirectory);
+
+  const blogs = await Promise.all(
+    markdownFiles.map(async (fileName) => {
+      const slug = fileName.replace(".md", "");
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContent = await fs.promises.readFile(fullPath, "utf8");
+      const matterResult = parseMarkdown(fileContent);
+
+      return {
+        slug,
+        ...matterResult,
+      };
+    }),
+  );
+
+  // Sort by date (newest first)
+  return blogs.sort(
+    (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime(),
+  );
 }

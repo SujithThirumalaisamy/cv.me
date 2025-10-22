@@ -1,4 +1,6 @@
 "use client";
+
+import { JSX } from "react";
 import Markdown from "@uiw/react-md-editor";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/nav-bar";
@@ -66,11 +68,10 @@ export default function Blog({
           <Markdown.Markdown
             source={content}
             style={{
-              whiteSpace: "pre-wrap",
               backgroundColor: "var(--primary)",
               color: "var(--primary-foreground)",
               fontSize: "1.1rem",
-              lineHeight: "1.8rem",
+              lineHeight: "2rem",
             }}
             className="w-full rounded-lg px-[1rem] pb-6 text-black md:px-[5rem] dark:border-gray-200 dark:text-white"
           />
@@ -98,16 +99,27 @@ function BlogHeader({
 }) {
   return (
     <>
-      <div className="flex gap-2 text-[0.9rem]">
-        {tags.map((tag: string) => (
-          <Badge
-            key={tag}
-            className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-white dark:border-[#d18521] dark:bg-[#d18521]"
-          >
-            {tag}
-          </Badge>
-        ))}
+      <div className="flex flex-col items-center gap-2 text-[0.9rem]">
+        {tags
+          .reduce<JSX.Element[][]>((rows, tag, i) => {
+            if (i % 4 === 0) rows.push([]);
+            rows[rows.length - 1].push(
+              <Badge
+                key={tag}
+                className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-gray-100 dark:border-[#d18521] dark:bg-[#d18521] dark:hover:bg-[#c87e1f]"
+              >
+                {tag}
+              </Badge>,
+            );
+            return rows;
+          }, [])
+          .map((row, i) => (
+            <div key={i} className="flex gap-2">
+              {row}
+            </div>
+          ))}
       </div>
+
       <div className="px-4 text-center text-[2rem] font-extrabold tracking-tight text-gray-900 md:text-[3rem] dark:text-gray-300">
         {title}
       </div>
@@ -125,8 +137,8 @@ const BlogFooter = ({ config }: BlogFooterProps) => {
   return (
     <footer className="bg-gray-200 p-6 text-center text-primary dark:bg-[#161B22]">
       <h2 className="text-xl font-semibold">{config.title}</h2>
-      <p className="mt-2 text-sm">{config.description}</p>
-      <div className="mt-4 flex max-w-full flex-wrap justify-center space-x-4">
+      <p className="mt-2 text-center text-sm">{config.description}</p>
+      <div className="mt-4 flex max-w-full flex-wrap justify-center gap-2">
         {config.links.map((link, index) => (
           <Link
             key={index}
@@ -135,7 +147,7 @@ const BlogFooter = ({ config }: BlogFooterProps) => {
             className="underline"
             rel="noopener noreferrer"
           >
-            <Badge className="my-1 flex-shrink-0 cursor-pointer gap-1 rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-white transition-colors duration-100 ease-out hover:bg-[#d4994a] dark:border-[#d18521] dark:bg-[#d18521]">
+            <Badge className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-gray-100 dark:border-[#d18521] dark:bg-[#d18521] dark:hover:bg-[#c87e1f]">
               {link.icon}
               {link.label}
             </Badge>

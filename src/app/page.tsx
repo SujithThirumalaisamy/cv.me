@@ -4,11 +4,26 @@ import { Badge } from "@/components/ui/badge";
 import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
-import { GlobeIcon, Link, MailIcon, PhoneIcon } from "lucide-react";
+import {
+  GlobeIcon,
+  Link,
+  MailIcon,
+  PhoneIcon,
+  ArrowRightIcon,
+  CalendarIcon,
+  BookOpenIcon,
+  UserIcon,
+  BriefcaseIcon,
+  CodeIcon,
+  FolderIcon,
+  GithubIcon,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import HeatMap from "@/components/heat-map";
+import { getAllBlogs } from "@/app/actions/blogs";
+import { formatDatetime } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -19,24 +34,27 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  const blogs = await getAllBlogs();
+  const latestBlog = blogs[0]; // Get the most recent blog
+
   return (
     <>
       <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 print:p-12 md:p-16 dark:bg-gray-950">
         <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6 dark:bg-gray-950">
           <div className="flex items-center justify-between">
             <div className="flex-1 space-y-1.5">
-              <h1 className="text-2xl font-bold">
+              <h1 className="items-center text-2xl font-bold">
                 {RESUME_DATA.name}
                 <a href="mailto:sujithmasi1267@gmail.com">
-                  <Badge className="m-2 cursor-pointer p-1 py-0">
+                  <Badge className="mx-2 cursor-pointer p-1 py-0">
                     Hire Me!
                   </Badge>
                 </a>
               </h1>
-              <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground">
+              <p className="max-w-md text-pretty pl-0 font-mono text-sm text-muted-foreground">
                 {RESUME_DATA.about}
               </p>
-              <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+              <p className="max-w-md items-center text-pretty pl-0 font-mono text-xs text-muted-foreground">
                 <a
                   className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                   href={RESUME_DATA.locationLink}
@@ -118,23 +136,139 @@ export default async function Page() {
           </div>
           <HeatMap />
           <Section>
-            <h2 className="text-xl font-bold">About Me</h2>
-            <p className="text-pretty font-mono text-sm text-muted-foreground">
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <UserIcon className="h-5 w-5" />
+              About Me
+            </h2>
+            <p className="text-pretty pl-0 font-mono text-sm text-muted-foreground">
               {RESUME_DATA.summary}
             </p>
           </Section>
+
+          {/* Blog Section */}
           <Section>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="flex items-center gap-2 text-xl font-bold">
+                <BookOpenIcon className="h-5 w-5" />
+                Latest Writings
+              </h2>
+              <a
+                href="/blog"
+                className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                View all posts
+                <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+
+            {latestBlog && (
+              <Card className="group transform cursor-pointer border-2 bg-gradient-to-br from-white to-gray-50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900">
+                <CardHeader className="pb-3">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1 space-y-2">
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1">
+                        {latestBlog.tags.slice(0, 3).map((tag) => (
+                          <Badge
+                            key={tag}
+                            variant="secondary"
+                            className="bg-primary/10 px-2 py-0.5 text-xs font-thin text-primary transition-colors hover:bg-primary/20"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                        {latestBlog.tags.length > 3 && (
+                          <Badge
+                            variant="outline"
+                            className="px-2 py-1 text-xs"
+                          >
+                            +{latestBlog.tags.length - 3} more
+                          </Badge>
+                        )}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="line-clamp-2 text-lg font-semibold transition-colors group-hover:text-primary">
+                        {latestBlog.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="line-clamp-2 pl-0 text-sm text-muted-foreground">
+                        {latestBlog.description}
+                      </p>
+
+                      {/* Date */}
+                      <div className="flex items-center text-xs text-muted-foreground">
+                        <CalendarIcon className="mr-1 h-3 w-3" />
+                        {formatDatetime(latestBlog.datetime)}
+                      </div>
+                    </div>
+
+                    {/* Read More Button */}
+                    <div className="flex-shrink-0">
+                      <Button
+                        size="sm"
+                        className="bg-primary px-2 py-1 text-xs opacity-0 transition-opacity duration-300 hover:bg-primary/90 group-hover:opacity-100"
+                        asChild
+                      >
+                        <a href={`/blog/${latestBlog.slug}`}>
+                          Read More
+                          <ArrowRightIcon className="ml-1 h-3 w-3" />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardHeader>
+
+                {/* Additional blogs preview */}
+                {blogs.length > 1 && (
+                  <CardContent className="pt-0">
+                    <div className="border-t pt-3">
+                      <p className="mb-2 text-xs text-muted-foreground">
+                        More recent posts:
+                      </p>
+                      <div className="space-y-1">
+                        {blogs.slice(1, 3).map((blog) => (
+                          <a
+                            key={blog.slug}
+                            href={`/blog/${blog.slug}`}
+                            className="group/item block text-xs transition-colors hover:text-primary"
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="line-clamp-1 group-hover/item:underline">
+                                {blog.title}
+                              </span>
+                              <span className="text-xs text-muted-foreground">
+                                {formatDatetime(blog.datetime)}
+                              </span>
+                            </div>
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                )}
+              </Card>
+            )}
+          </Section>
+          <Section>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <BriefcaseIcon className="h-5 w-5" />
+              Work Experience
+            </h2>
             {RESUME_DATA.work.map((work) => {
               return (
                 <Card
                   key={work.company}
-                  className="light:border-gray-200 border bg-gray-50"
+                  className="group transform cursor-pointer border-2 bg-gradient-to-br from-white to-gray-50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900"
                 >
                   <CardHeader>
                     <div className="flex items-center justify-between gap-x-2 text-base">
                       <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                        <a className="hover:underline" href={work.link}>
+                        <a
+                          className="transition-colors hover:underline group-hover:text-primary"
+                          href={work.link}
+                        >
                           {work.company}
                         </a>
 
@@ -142,7 +276,7 @@ export default async function Page() {
                           {work.badges.map((badge) => (
                             <Badge
                               variant="secondary"
-                              className="align-middle text-xs"
+                              className="align-middle text-xs transition-colors hover:bg-primary/20"
                               key={badge}
                             >
                               {badge}
@@ -187,16 +321,29 @@ export default async function Page() {
           {/*   })} */}
           {/* </Section> */}
           <Section>
-            <h2 className="text-xl font-bold">Skills</h2>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <CodeIcon className="h-5 w-5" />
+              Skills
+            </h2>
             <div className="flex flex-wrap gap-1">
               {RESUME_DATA.skills.map((skill) => {
-                return <Badge key={skill}>{skill}</Badge>;
+                return (
+                  <Badge
+                    key={skill}
+                    className="cursor-default transition-colors hover:bg-primary/20"
+                  >
+                    {skill}
+                  </Badge>
+                );
               })}
             </div>
           </Section>
 
           <Section className="print-force-new-page scroll-mb-16 print:pt-6">
-            <h2 className="text-xl font-bold">Projects</h2>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <FolderIcon className="h-5 w-5" />
+              Projects
+            </h2>
             <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
               {RESUME_DATA.projects.map((project) => {
                 return (
@@ -216,7 +363,10 @@ export default async function Page() {
               href="https://tangible-sled-e9d.notion.site/Open-Source-Contributions-45fc829ac5354e48b4e691277b61b59d"
               className="flex items-center gap-2"
             >
-              <h2 className="text-xl font-bold">Open Source Contributions</h2>
+              <h2 className="flex items-center gap-2 text-xl font-bold">
+                <GithubIcon className="h-5 w-5" />
+                Open Source Contributions
+              </h2>
               <Link className="scale-75" />
             </a>
             <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">

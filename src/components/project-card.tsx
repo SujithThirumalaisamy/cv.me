@@ -16,10 +16,10 @@ interface Props {
 
 export function ProjectCard({ title, description, tags, link }: Props) {
   return (
-    <Card className="light:border-gray-200 flex flex-col overflow-hidden border bg-gray-50 p-3">
+    <Card className="group flex transform flex-col overflow-hidden border-2 bg-gradient-to-br from-white to-gray-50 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900">
       <CardHeader className="">
         <div className="space-y-1">
-          <CardTitle className="text-base">
+          <CardTitle className="text-base transition-colors group-hover:text-primary">
             {link ? (
               <a
                 href={link}
@@ -45,7 +45,7 @@ export function ProjectCard({ title, description, tags, link }: Props) {
         <div className="mt-2 flex flex-wrap gap-1">
           {tags.map((tag) => (
             <Badge
-              className="px-1 py-0 text-[10px]"
+              className="px-1 py-0 text-[10px] transition-colors hover:bg-primary/20"
               variant="secondary"
               key={tag}
             >
