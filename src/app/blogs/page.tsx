@@ -71,7 +71,7 @@ interface BlogCardProps {
 function BlogCard({ blog }: BlogCardProps) {
   return (
     <article className="group rounded-lg border border-gray-200 bg-white p-6 transition-all duration-200 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800">
-      <Link href={`/blog/${blog.slug}`} className="block">
+      <Link href={`/blogs/${blog.slug}`} className="block">
         {/* Tags */}
         <div className="mb-3 flex flex-wrap gap-2">
           {blog.tags.map((tag) => (

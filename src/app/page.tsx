@@ -231,7 +231,7 @@ export default async function Page() {
                         {blogs.slice(1, 3).map((blog) => (
                           <a
                             key={blog.slug}
-                            href={`/blog/${blog.slug}`}
+                            href={`/blogs/${blog.slug}`}
                             className="group/item block text-xs transition-colors hover:text-primary"
                           >
                             <div className="flex items-center justify-between">
