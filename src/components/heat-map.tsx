@@ -1,34 +1,56 @@
-"use client";
-import GitHubCalendar from "react-github-calendar";
+import Calendar, { type ThemeInput } from "react-activity-calendar";
+import { ApiResponse, Contribution } from "./types";
 import { Section } from "./ui/section";
-import { useTheme } from "next-themes";
-import { useState } from "react";
-import dynamic from "next/dynamic";
 
-const GitHubUsername = "sujiththirumalaisamy";
+const GITHUB_USERNAME = "sujiththirumalaisamy";
 
-function HeatMap() {
-  const { theme } = useTheme();
-  const [totalCommits, setTotalCommits] = useState(0);
+const fetchGitHubData = async (): Promise<ApiResponse> => {
+  const response = await fetch(
+    `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`
+  );
+  return response.json();
+};
+
+export default async function HeatMap() {
+  const data = await fetchGitHubData();
+  const { totalCommits, filteredData } = transformData(data.contributions);
 
   return (
     <Section className="mt-8 rounded-[0.5rem] border-2 border-secondary p-2 text-sm">
-      <GitHubCalendar
-        username={GitHubUsername}
-        hideMonthLabels
-        colorScheme={theme && theme === "dark" ? "dark" : "light"}
-        transformData={(data) => {
-          setTotalCommits(data.reduce((acc, curr) => acc + curr.count, 0));
-          // 287 is the number of days visible in the heatmap without scroll
-          return data.slice(data.length - 287, data.length);
-        }}
-        totalCount={totalCommits}
+      <Calendar
         weekStart={(new Date().getDay() + 1) as any}
+        labels={defaultLabels}
+        data={filteredData}
+        hideMonthLabels
+        totalCount={totalCommits}
+        theme={gitHubTheme}
+        colorScheme="dark"
+        maxLevel={4}
       />
     </Section>
   );
 }
 
-export default dynamic(() => Promise.resolve(HeatMap), {
-  ssr: false,
-});
+const defaultLabels = {
+  totalCount: `{{count}} contributions in the last year`,
+};
+
+const gitHubTheme: ThemeInput = {
+  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+};
+
+const transformData = (data: Contribution[]) => {
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+
+  const filteredData = data
+    .filter(item => new Date(item.date) <= today)
+    .slice(-287) // take last 287 items
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()); // oldest first
+
+  const totalCommits = data.reduce((sum, item) => sum + item.count, 0);
+
+  return { filteredData, totalCommits };
+};
+
