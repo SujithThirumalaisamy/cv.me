@@ -24,6 +24,7 @@
     "next": "14.0.4",
     "next-themes": "^0.3.0",
     "react": "^18",
+    "react-activity-calendar": "^2.7.15",
     "react-dom": "^18",
     "react-markdown": "^10.0.0",
     "rehype-starry-night": "^2.2.0",
