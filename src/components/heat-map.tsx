@@ -6,7 +6,7 @@ const GITHUB_USERNAME = "sujiththirumalaisamy";
 
 const fetchGitHubData = async (): Promise<ApiResponse> => {
   const response = await fetch(
-    `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`
+    `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`,
   );
   return response.json();
 };
@@ -45,12 +45,11 @@ const transformData = (data: Contribution[]) => {
   today.setHours(23, 59, 59, 999);
 
   const filteredData = data
-    .filter(item => new Date(item.date) <= today)
-    .slice(-287) // take last 287 items
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()); // oldest first
+    .filter((item) => new Date(item.date) <= today)
+    .reverse()
+    .slice(data.length - 352);
 
   const totalCommits = data.reduce((sum, item) => sum + item.count, 0);
 
   return { filteredData, totalCommits };
 };
-

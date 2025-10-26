@@ -73,7 +73,7 @@ export default function Blog({
               fontSize: "1.1rem",
               lineHeight: "2rem",
             }}
-            className="w-full rounded-lg px-[1rem] pb-6 text-black md:px-[5rem] dark:border-gray-200 dark:text-white"
+            className="w-full rounded-lg px-[1rem] pb-6 text-black dark:border-gray-200 dark:text-white md:px-[5rem]"
           />
         </div>
       </div>
@@ -120,7 +120,7 @@ function BlogHeader({
           ))}
       </div>
 
-      <div className="px-4 text-center text-[2rem] font-extrabold tracking-tight text-gray-900 md:text-[3rem] dark:text-gray-300">
+      <div className="px-4 text-center text-[2rem] font-extrabold tracking-tight text-gray-900 dark:text-gray-300 md:text-[3rem]">
         {title}
       </div>
       <div className="text-sm font-medium italic text-[#B91C1B] dark:text-[#EDC38D]">

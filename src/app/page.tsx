@@ -39,8 +39,8 @@ export default async function Page() {
 
   return (
     <>
-      <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 print:p-12 md:p-16 dark:bg-gray-950">
-        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6 dark:bg-gray-950">
+      <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 dark:bg-gray-950 md:p-16 print:p-12">
+        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 space-y-1.5">
               <h1 className="items-center text-2xl font-bold">
@@ -344,7 +344,7 @@ export default async function Page() {
               <FolderIcon className="h-5 w-5" />
               Projects
             </h2>
-            <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+            <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2">
               {RESUME_DATA.projects.map((project) => {
                 return (
                   <ProjectCard
@@ -369,7 +369,7 @@ export default async function Page() {
               </h2>
               <Link className="scale-75" />
             </a>
-            <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
+            <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2">
               {RESUME_DATA.opensource.map((opensource) => {
                 return (
                   <ProjectCard

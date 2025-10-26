@@ -21,7 +21,7 @@ export default async function BlogPage() {
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 px-4 py-8">
           {/* Header */}
           <div className="text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl dark:text-gray-100">
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 md:text-5xl">
               My Writings
             </h1>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
