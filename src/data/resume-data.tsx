@@ -45,7 +45,7 @@ export const RESUME_DATA = {
       company: "CrackedDevs",
       link: "https://crackeddevs.com",
       badges: ["US Remote"],
-      title: "Full Stack Engineer",
+      title: "Software Engineer",
       start: "May 2025",
       end: "Present",
       description:
