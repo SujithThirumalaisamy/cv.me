@@ -6,12 +6,17 @@ COPY . .
 
 RUN yarn install && yarn build
 
-FROM node:20-alpine AS runnner
+FROM node:20-alpine AS node-runtime
 
-RUN mkdir /.npm && chown -R 1001:1001 /.npm
+RUN apk add --no-cache libc6-compat
 
-USER 1001:1001
-WORKDIR /usr/src/app
+FROM scratch AS runnner
+
+WORKDIR /app
+
+COPY --from=node-runtime /usr/local/bin/node /usr/local/bin/node
+COPY --from=node-runtime /lib /lib
+COPY --from=node-runtime /usr/lib /usr/lib
 
 COPY --from=builder --chown=1001:1001 usr/src/app/.next/standalone ./
 COPY --from=builder --chown=1001:1001 usr/src/app/.next/static ./.next/static
@@ -19,6 +24,7 @@ COPY --from=builder --chown=1001:1001 usr/src/app/public ./public
 
 ENV NODE_ENV=production
 ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+
+EXPOSE $PORT
 
 CMD [ "node", "server.js" ]

@@ -18,7 +18,7 @@ export default async function HeatMap() {
   return (
     <Section className="mt-8 rounded-[0.5rem] border-2 border-secondary p-2 text-sm">
       <Calendar
-        weekStart={2}
+        weekStart={0}
         labels={defaultLabels}
         data={filteredData}
         hideMonthLabels
@@ -44,9 +44,11 @@ const transformData = (data: Contribution[]) => {
   const today = new Date();
 
   const filteredData = data
-    .filter((item) => new Date(item.date) <= today)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    .filter((a) => new Date(a.date) < today)
     .reverse()
-    .slice(data.length - 41 * 7, data.length);
+    .slice(0, 286 - today.getDay())
+    .reverse();
 
   const totalCommits = data.reduce((sum, item) => sum + item.count, 0);
 
