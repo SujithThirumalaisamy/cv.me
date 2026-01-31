@@ -47,7 +47,7 @@ const transformData = (data: Contribution[]) => {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .filter((a) => new Date(a.date) < today)
     .reverse()
-    .slice(0, 287 - (7 - today.getDay()))
+    .slice(0, 294 - (7 - today.getDay()))
     .reverse();
 
   const totalCommits = data.reduce((sum, item) => sum + item.count, 0);
