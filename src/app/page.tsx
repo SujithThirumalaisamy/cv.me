@@ -219,35 +219,6 @@ export default async function Page() {
                     </div>
                   </div>
                 </CardHeader>
-
-                {/* Additional blogs preview */}
-                {blogs.length > 1 && (
-                  <CardContent className="pt-0">
-                    <div className="border-t pt-3">
-                      <p className="mb-2 text-xs text-muted-foreground">
-                        More recent posts:
-                      </p>
-                      <div className="space-y-1">
-                        {blogs.slice(1, 3).map((blog) => (
-                          <a
-                            key={blog.slug}
-                            href={`/blogs/${blog.slug}`}
-                            className="group/item block text-xs transition-colors hover:text-primary"
-                          >
-                            <div className="flex items-center justify-between">
-                              <span className="line-clamp-1 group-hover/item:underline">
-                                {blog.title}
-                              </span>
-                              <span className="text-xs text-muted-foreground">
-                                {formatDatetime(blog.datetime)}
-                              </span>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                )}
               </Card>
             )}
           </Section>
