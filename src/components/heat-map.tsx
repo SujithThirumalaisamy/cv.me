@@ -40,6 +40,14 @@ const gitHubTheme: ThemeInput = {
   dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
 };
 
+const DAYS_IN_WEEKS = 7;
+const WEEKS = 47;
+
+const today = new Date();
+const dayOfWeek = today.getDay();
+
+const totalDays = WEEKS * DAYS_IN_WEEKS - (6 - dayOfWeek);
+
 const transformData = (data: Contribution[]) => {
   const today = new Date();
 
@@ -47,7 +55,7 @@ const transformData = (data: Contribution[]) => {
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .filter((a) => new Date(a.date) < today)
     .reverse()
-    .slice(0, 294 - (7 - today.getDay()))
+    .slice(0, totalDays)
     .reverse();
 
   const totalCommits = data.reduce((sum, item) => sum + item.count, 0);

@@ -40,9 +40,9 @@ export default async function Page() {
   return (
     <>
       <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 dark:bg-gray-950 md:p-16 print:p-12">
-        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
+        <section className="mx-auto w-full max-w-3xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
           <div className="flex items-center justify-between">
-            <div className="flex-1 space-y-1.5">
+            <div className="flex-1 space-y-2">
               <h1 className="items-center text-2xl font-bold">
                 {RESUME_DATA.name}
                 <a href="mailto:sujithmasi1267@gmail.com">
@@ -134,17 +134,6 @@ export default async function Page() {
               <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
             </Avatar>
           </div>
-          <HeatMap />
-          <Section>
-            <h2 className="flex items-center gap-2 text-xl font-bold">
-              <UserIcon className="h-5 w-5" />
-              About Me
-            </h2>
-            <p className="text-pretty pl-0 font-mono text-sm text-muted-foreground">
-              {RESUME_DATA.summary}
-            </p>
-          </Section>
-
           {/* Blog Section */}
           <Section>
             <div className="flex items-center justify-between">
@@ -221,6 +210,16 @@ export default async function Page() {
                 </CardHeader>
               </Card>
             )}
+          </Section>
+          <HeatMap />
+          <Section>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <UserIcon className="h-5 w-5" />
+              About Me
+            </h2>
+            <p className="text-pretty pl-0 font-mono text-sm text-muted-foreground">
+              {RESUME_DATA.summary}
+            </p>
           </Section>
           <Section>
             <h2 className="flex items-center gap-2 text-xl font-bold">

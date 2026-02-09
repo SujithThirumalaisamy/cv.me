@@ -2,8 +2,7 @@
 title: "Why Run a DNS Server on Kubernetes?"
 description: "Getting trolled by a friend for overengineering my homelab"
 datetime: 2026-01-28
-tags:
-  ["Bind9", "Kubernetes", "DNS", "Terraform", "DevOps", "Homelab"]
+tags: ["Bind9", "Kubernetes", "DNS", "Terraform", "DevOps", "Homelab"]
 ---
 
 ## Context
@@ -16,7 +15,7 @@ Bind9 felt like the right choice: stable, flexible, and well understood. This po
 
 I hear you:
 
-> *“Why put a simple DNS server into Kubernetes and deal with volumes, pods, and extra complexity?”*
+> _“Why put a simple DNS server into Kubernetes and deal with volumes, pods, and extra complexity?”_
 
 This is a valid argument. A friend made the same point and honestly, he was not wrong.
 
@@ -27,6 +26,7 @@ But infrastructure choices are not just about fancy things or simple things. The
 At this point, **everything in my homelab runs on Kubernetes**.
 
 My setup:
+
 - 2-node Proxmox cluster (Lenovo Tiny PCs)
 - 1 Gbps network
 
@@ -35,6 +35,7 @@ VM live migration sounds fancy until you watch it crawl on a 1Gigabit. If a node
 Kubernetes solves this problem naturally.
 
 Instead of migrating machines, it **recreates workloads**:
+
 - Containers restart faster than VMs migrate
 - Network configuration stays intact
 - Failures are boring and predictable
@@ -48,14 +49,14 @@ The real win is **declarative control**.
 - DNS records are defined in Terraform
 - Kubernetes manifests describe runtime state
 - Changes are done via Git
-- The cluster converges automatically 
+- The cluster converges automatically
 
 (This is not true, I haven't implemented Semaphore)
 Soon, Semaphore will sit on top and make this even smoother.
 
 With limited bandwidth and frequent experimentation, Kubernetes isn’t overkill it’s **practical**.
 
-So yes, Bind9 on Kubernetes *looks* complex overengineering from the outside.  
+So yes, Bind9 on Kubernetes _looks_ complex overengineering from the outside.  
 But inside this system, it’s the **simplest consistent choice**.
 
 ---

@@ -16,9 +16,11 @@ export default function Navbar() {
   return (
     <div className="mb-4 flex w-full items-center justify-between px-4 py-6">
       <div className={"left"}>
-        <h2 className="text-xl font-semibold md:text-3xl">
-          Sujith Thirumalaisamy
-        </h2>
+        <Link href="/">
+          <h2 className="text-xl font-semibold md:text-3xl">
+            Sujith Thirumalaisamy
+          </h2>
+        </Link>
       </div>
       <div className="right flex items-center gap-4">
         <ThemeToggle />
