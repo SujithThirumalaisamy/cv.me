@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Navbar } from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Sujith | Software Engineer & DevOps Specialist",
@@ -30,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={inter.className} suppressHydrationWarning>
       <head>
         <link
           rel="apple-touch-icon"
@@ -58,6 +59,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

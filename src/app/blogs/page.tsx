@@ -1,6 +1,12 @@
 import { getAllBlogs } from "@/app/actions/blogs";
 import { Badge } from "@/components/ui/badge";
-import Navbar from "@/components/nav-bar";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { formatDatetime } from "@/lib/utils";
 import Link from "next/link";
 import { CalendarIcon, TagIcon } from "lucide-react";
@@ -17,40 +23,18 @@ export default async function BlogPage() {
   return (
     <>
       <div className="mx-auto flex w-full max-w-6xl flex-col font-sans">
-        <Navbar />
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 px-4 py-8">
-          {/* Header */}
           <div className="text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 md:text-5xl">
-              My Writings
-            </h1>
-            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+            <p className="mt-8 text-lg text-gray-600 dark:text-gray-400">
               Thoughts on DevOps, Software Engineering, and tech experiments
               from my homelab adventures.
             </p>
           </div>
 
-          {/* Blog List */}
-          <div className="w-full space-y-8">
+          <div className="flex w-full flex-col space-y-4">
             {blogs.map((blog) => (
               <BlogCard key={blog.slug} blog={blog} />
             ))}
-          </div>
-
-          {/* Footer */}
-          <div className="mt-12 text-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              More posts coming soon! Follow me on{" "}
-              <Link
-                href="https://x.com/SujithThiru"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-              >
-                X
-              </Link>{" "}
-              for updates.
-            </p>
           </div>
         </div>
       </div>
@@ -65,42 +49,65 @@ interface BlogCardProps {
     description: string;
     datetime: string;
     tags: string[];
+    image?: string;
   };
 }
 
 function BlogCard({ blog }: BlogCardProps) {
   return (
-    <article className="group rounded-lg border border-gray-200 bg-white p-6 transition-all duration-200 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800">
-      <Link href={`/blogs/${blog.slug}`} className="block">
-        {/* Tags */}
-        <div className="mb-3 flex flex-wrap gap-2">
-          {blog.tags.map((tag) => (
-            <Badge
-              key={tag}
-              className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-gray-100 dark:border-[#d18521] dark:bg-[#d18521] dark:hover:bg-[#c87e1f]"
-            >
-              <TagIcon className="mr-1 h-3 w-3" />
-              {tag}
-            </Badge>
-          ))}
+    <Link href={`/blogs/${blog.slug}`}>
+      <div className="group flex h-full flex-col overflow-hidden border transition-all hover:border-zinc-400 hover:shadow-md dark:hover:border-zinc-600 md:flex-row">
+        {blog.image && (
+          <div className="relative aspect-video w-full shrink-0 overflow-hidden md:aspect-auto md:w-72">
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        )}
+        <div className="flex flex-1 flex-col justify-center p-4">
+          <CardHeader>
+            <div className="flex flex-col gap-2">
+              <CardTitle className="text-xl font-bold transition-colors group-hover:text-primary">
+                {blog.title}
+              </CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="flex-grow pt-2">
+            {blog.description}
+          </CardContent>
+          <CardFooter className="mt-4 flex w-full items-center justify-between pt-0">
+            <div className="flex flex-wrap gap-2">
+              {blog.tags.slice(0, 4).map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="px-2 py-0.5 text-xs font-normal"
+                >
+                  {tag}
+                </Badge>
+              ))}
+              {blog.tags.length > 4 && (
+                <Badge
+                  key="more"
+                  variant="secondary"
+                  className="px-2 py-0.5 text-xs font-normal"
+                >
+                  + {blog.tags.length - 4}
+                </Badge>
+              )}
+            </div>
+
+            <div className="flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
+              <CalendarIcon className="h-3 w-3" />
+              <time dateTime={blog.datetime}>
+                {formatDatetime(blog.datetime)}
+              </time>
+            </div>
+          </CardFooter>
         </div>
-
-        {/* Title */}
-        <h2 className="mb-3 text-2xl font-bold text-gray-900 transition-colors duration-200 group-hover:text-blue-600 dark:text-gray-100 dark:group-hover:text-blue-400">
-          {blog.title}
-        </h2>
-
-        {/* Description */}
-        <p className="mb-4 text-gray-600 dark:text-gray-300">
-          {blog.description}
-        </p>
-
-        {/* Date */}
-        <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          <time dateTime={blog.datetime}>{formatDatetime(blog.datetime)}</time>
-        </div>
-      </Link>
-    </article>
+      </div>
+    </Link>
   );
 }

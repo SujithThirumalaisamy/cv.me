@@ -3,7 +3,7 @@
 import { JSX } from "react";
 import Markdown from "@uiw/react-md-editor";
 import { Badge } from "@/components/ui/badge";
-import Navbar from "@/components/nav-bar";
+
 import { formatDatetime } from "@/lib/utils";
 import { BlogMatterWithContent } from "@/app/actions/blogs";
 import Link from "next/link";
@@ -56,7 +56,7 @@ export default function Blog({
     <>
       <div className="mx-auto flex w-full max-w-6xl flex-col font-sans">
         <Title title={title} />
-        <Navbar />
+
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-2 md:gap-6">
           <BlogHeader
             title={title}

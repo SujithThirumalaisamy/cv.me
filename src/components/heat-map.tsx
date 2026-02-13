@@ -24,7 +24,7 @@ export default async function HeatMap() {
         hideMonthLabels
         totalCount={totalCommits}
         theme={gitHubTheme}
-        colorScheme="dark"
+        colorScheme={"dark"}
         maxLevel={4}
       />
     </Section>

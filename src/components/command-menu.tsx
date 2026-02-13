@@ -58,14 +58,6 @@ export const CommandMenu = ({ links }: Props) => {
           <CommandGroup heading="Actions">
             <CommandItem
               onSelect={() => {
-                setOpen(false);
-                window.print();
-              }}
-            >
-              <span>Print</span>
-            </CommandItem>
-            <CommandItem
-              onSelect={() => {
                 let currentTheme = theme === "dark" ? "dark" : "light";
                 if (resolvedTheme === "dark") {
                   currentTheme = "dark";

@@ -7,7 +7,7 @@ export const RESUME_DATA = {
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about: "Software Engineer @ CrackedDevs",
   summary:
-    "From backend applications to self hosted Kubernetes clusters. My focus is on infrastructure automation, reliability, and building developer friendly platforms. I enjoy breaking systems, rebuilding them properly, and automating everything in between.",
+    "I am a hobbyist software engineer and an tinkerer. For a brief period, I focused on formal Computer Science education, where I built a strong foundation in systems, networking, and computing. Most of my real learning, however, has come from building, breaking, rebuilding, and running things in production and in my homelab. Over the years, I have gravitated toward DevOps and infrastructure engineering, working on automation, cloud native systems, and reliability focused tooling. I enjoy unconventional setups, practical problem solving, and building systems that are simple, scalable, and resilient.",
   avatarUrl: "https://cdn.isujith.dev/profile.jpg",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
