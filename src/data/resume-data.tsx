@@ -8,7 +8,7 @@ export const RESUME_DATA = {
   about: "Software Engineer @ CrackedDevs",
   summary:
     "Passionate Software Developer with a strong foundation in full-stack development, cloud computing, and DevOps practices. Proven track record in designing and implementing scalable, resilient, and user-centric applications. Adept at leveraging modern technologies to solve complex problems and deliver impactful solutions.",
-  avatarUrl: "https://cdn.isujith.dev/profile2.jpg",
+  avatarUrl: "https://cdn.isujith.dev/profile.jpg",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
     email: "sujithmasi1267@gmail.com",
