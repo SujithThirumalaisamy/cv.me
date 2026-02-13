@@ -270,26 +270,31 @@ export default async function Page() {
               );
             })}
           </Section>
-          {/* <Section> */}
-          {/*   <h2 className="text-xl font-bold">Education</h2> */}
-          {/*   {RESUME_DATA.education.map((education) => { */}
-          {/*     return ( */}
-          {/*       <Card key={education.school}> */}
-          {/*         <CardHeader> */}
-          {/*           <div className="flex items-center justify-between gap-x-2 text-base"> */}
-          {/*             <h3 className="font-semibold leading-none"> */}
-          {/*               {education.school} */}
-          {/*             </h3> */}
-          {/*             <div className="text-sm tabular-nums text-gray-500"> */}
-          {/*               {education.start} - {education.end} */}
-          {/*             </div> */}
-          {/*           </div> */}
-          {/*         </CardHeader> */}
-          {/*         <CardContent className="mt-2">{education.degree}</CardContent> */}
-          {/*       </Card> */}
-          {/*     ); */}
-          {/*   })} */}
-          {/* </Section> */}
+          <Section>
+            <h2 className="text-xl font-bold">Education</h2>
+            {RESUME_DATA.education.map((education) => {
+              return (
+                <Card
+                  key={`${education.school} ${education.degree}`}
+                  className="group transform cursor-pointer border-2 bg-gradient-to-br from-white to-gray-50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900"
+                >
+                  <CardHeader>
+                    <div className="flex items-center justify-between gap-x-2 text-base">
+                      <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+                        {education.school}
+                      </h3>
+                      <div className="text-sm tabular-nums text-gray-500">
+                        {education.start} - {education.end ?? "Present"}
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="mt-2 text-xs">
+                    {education.degree}
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </Section>
           <Section>
             <h2 className="flex items-center gap-2 text-xl font-bold">
               <CodeIcon className="h-5 w-5" />
