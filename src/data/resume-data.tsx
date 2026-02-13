@@ -115,12 +115,6 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "Centralised Server for College Lab",
-      techStack: ["Docker", "Portainer", "OracleSQL/PostgreSQL"],
-      description:
-        "Deployed persistent Oracle/PostgresSQL Databases using Docker-Ubuntu-rack-server.",
-    },
-    {
       title: "Homelab",
       techStack: ["Kubernetes", "Remote Access", "DNS", "Terraform", "IAAC"],
       description:
@@ -128,15 +122,6 @@ export const RESUME_DATA = {
     },
   ],
   opensource: [
-    {
-      title: "Muzer",
-      techStack: ["Next.js", "PostgreSQL", "Websockets"],
-      description: "Collaborative web based youtube playlist.",
-      link: {
-        label: "muzer.100xdevs.com",
-        href: "https://muzer.100xdevs.com",
-      },
-    },
     {
       title: "Twenty",
       techStack: ["twentyhq/twenty", "Next.js", "PostgreSQL", "Monorepo"],
@@ -157,15 +142,6 @@ export const RESUME_DATA = {
       },
     },
     {
-      title: "projects.100xdevs",
-      techStack: ["Next.js", "PostgreSQL", "TurboRepo", "Prisma", "Notion API"],
-      description: "A complete notion based content/slides viewer.",
-      link: {
-        label: "projects.100xdevs.com",
-        href: "https://projects.100xdevs.com",
-      },
-    },
-    {
       title: "algo.100xdevs",
       techStack: ["Next.js", "PostgreSQL/Prisma", "TurboRepo", "Kubernetes"],
       description: "A complete code cramming platform.",
@@ -174,16 +150,5 @@ export const RESUME_DATA = {
         href: "https://algo.100xdevs.com",
       },
     },
-    {
-      title: "cv",
-      techStack: ["BartoszJarocki/cv", "TypeScript", "Next.js"],
-      description:
-        "The project where you are. Fork of BartoszJarocki/cv in github.",
-      link: {
-        label: "cv.jarocki.me",
-        href: "https://cv.jarocki.me",
-      },
-    },
-    ,
   ],
 } as const;

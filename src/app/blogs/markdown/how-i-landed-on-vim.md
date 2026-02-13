@@ -64,7 +64,7 @@ Neovim wasn’t my first choice, it was my _last_.
 
 I opened it expecting pain. What I found instead was:
 
-> At that time I had a decent typing speed of 90+WPM 
+> At that time I had a decent typing speed of 90+WPM
 
 - Instant startup
 - Keyboard driven speed
