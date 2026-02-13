@@ -1,7 +1,8 @@
 ---
-title: "What’s in My Homelab?"
+title: "Inside My DevOps Homelab: Purpose and Tech Overview"
 description: "An inside look at my homelab, featuring a Proxmox-backed Kubernetes cluster with TrueNAS storage, built to experiment with DevOps tools and automation."
 datetime: 2025-10-22
+image: "https://cdn.isujith.dev/homelab.png"
 tags:
   [
     "Homelab",

@@ -16,7 +16,7 @@ export default async function HeatMap() {
   const { totalCommits, filteredData } = transformData(data.contributions);
 
   return (
-    <Section className="mt-8 rounded-[0.5rem] border-2 border-secondary p-2 text-sm">
+    <Section className="rounded-[0.5rem] border-2 border-secondary p-2 text-sm">
       <Calendar
         weekStart={0}
         labels={defaultLabels}
@@ -44,7 +44,7 @@ const DAYS_IN_WEEKS = 7;
 const WEEKS = 47;
 
 const today = new Date();
-const dayOfWeek = today.getDay();
+const dayOfWeek = today.getUTCDay();
 
 const totalDays = WEEKS * DAYS_IN_WEEKS - (6 - dayOfWeek);
 

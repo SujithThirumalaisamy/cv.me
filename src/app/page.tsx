@@ -6,11 +6,10 @@ import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import {
   GlobeIcon,
-  Link,
+  LinkIcon,
   MailIcon,
   PhoneIcon,
   ArrowRightIcon,
-  CalendarIcon,
   BookOpenIcon,
   UserIcon,
   BriefcaseIcon,
@@ -23,7 +22,7 @@ import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
 import HeatMap from "@/components/heat-map";
 import { getAllBlogs } from "@/app/actions/blogs";
-import { formatDatetime } from "@/lib/utils";
+import { BlogCard } from "@/components/blog-card";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -35,7 +34,6 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const blogs = await getAllBlogs();
-  const latestBlog = blogs[0]; // Get the most recent blog
 
   return (
     <>
@@ -47,7 +45,7 @@ export default async function Page() {
                 {RESUME_DATA.name}
                 <a href="mailto:sujithmasi1267@gmail.com">
                   <Badge className="mx-2 cursor-pointer p-1 py-0">
-                    Hire Me!
+                    Work With Me!
                   </Badge>
                 </a>
               </h1>
@@ -150,68 +148,28 @@ export default async function Page() {
               </a>
             </div>
 
-            {latestBlog && (
-              <Card className="group transform cursor-pointer border-2 bg-gradient-to-br from-white to-gray-50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1 space-y-2">
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-1">
-                        {latestBlog.tags.slice(0, 3).map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="secondary"
-                            className="bg-primary/10 px-2 py-0.5 text-xs font-thin text-primary transition-colors hover:bg-primary/20"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                        {latestBlog.tags.length > 3 && (
-                          <Badge
-                            variant="outline"
-                            className="px-2 py-1 text-xs"
-                          >
-                            +{latestBlog.tags.length - 3} more
-                          </Badge>
-                        )}
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="line-clamp-2 text-lg font-semibold transition-colors group-hover:text-primary">
-                        {latestBlog.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="line-clamp-2 pl-0 text-sm text-muted-foreground">
-                        {latestBlog.description}
-                      </p>
-
-                      {/* Date */}
-                      <div className="flex items-center text-xs text-muted-foreground">
-                        <CalendarIcon className="mr-1 h-3 w-3" />
-                        {formatDatetime(latestBlog.datetime)}
-                      </div>
-                    </div>
-
-                    {/* Read More Button */}
-                    <div className="flex-shrink-0">
-                      <Button
-                        size="sm"
-                        className="bg-primary px-2 py-1 text-xs opacity-0 transition-opacity duration-300 hover:bg-primary/90 group-hover:opacity-100"
-                        asChild
-                      >
-                        <a href={`/blogs/${latestBlog.slug}`}>
-                          Read More
-                          <ArrowRightIcon className="ml-1 h-3 w-3" />
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardHeader>
-              </Card>
-            )}
+            <div className="relative -mx-4 px-4">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {blogs &&
+                  blogs.map((blog) => (
+                    <BlogCard
+                      key={blog.slug}
+                      slug={blog.slug}
+                      title={blog.title}
+                      datetime={blog.datetime}
+                      image={blog.image}
+                    />
+                  ))}
+              </div>
+            </div>
           </Section>
-          <HeatMap />
+          <Section>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <CodeIcon className="h-5 w-5" />
+              Building in Public
+            </h2>
+            <HeatMap />
+          </Section>
           <Section>
             <h2 className="flex items-center gap-2 text-xl font-bold">
               <UserIcon className="h-5 w-5" />
@@ -271,31 +229,6 @@ export default async function Page() {
             })}
           </Section>
           <Section>
-            <h2 className="text-xl font-bold">Education</h2>
-            {RESUME_DATA.education.map((education) => {
-              return (
-                <Card
-                  key={`${education.school} ${education.degree}`}
-                  className="group transform cursor-pointer border-2 bg-gradient-to-br from-white to-gray-50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900"
-                >
-                  <CardHeader>
-                    <div className="flex items-center justify-between gap-x-2 text-base">
-                      <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
-                        {education.school}
-                      </h3>
-                      <div className="text-sm tabular-nums text-gray-500">
-                        {education.start} - {education.end ?? "Present"}
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="mt-2 text-xs">
-                    {education.degree}
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </Section>
-          <Section>
             <h2 className="flex items-center gap-2 text-xl font-bold">
               <CodeIcon className="h-5 w-5" />
               Skills
@@ -313,7 +246,6 @@ export default async function Page() {
               })}
             </div>
           </Section>
-
           <Section className="print-force-new-page scroll-mb-16 print:pt-6">
             <h2 className="flex items-center gap-2 text-xl font-bold">
               <FolderIcon className="h-5 w-5" />
@@ -340,9 +272,9 @@ export default async function Page() {
             >
               <h2 className="flex items-center gap-2 text-xl font-bold">
                 <GithubIcon className="h-5 w-5" />
-                Open Source Contributions
+                Opensource Contributions
               </h2>
-              <Link className="scale-75" />
+              <LinkIcon className="scale-75" />
             </a>
             <div className="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3 print:grid-cols-3 print:gap-2">
               {RESUME_DATA.opensource.map((opensource) => {
@@ -357,6 +289,34 @@ export default async function Page() {
                 );
               })}
             </div>
+          </Section>
+          <Section>
+            <h2 className="flex items-center gap-2 text-xl font-bold">
+              <BookOpenIcon className="h-5 w-5" />
+              Education
+            </h2>
+            {RESUME_DATA.education.map((education) => {
+              return (
+                <Card
+                  key={`${education.school} ${education.degree}`}
+                  className="group w-full transform cursor-pointer border-2 bg-gradient-to-br from-white to-gray-50 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg dark:from-gray-800 dark:to-gray-900"
+                >
+                  <CardHeader>
+                    <div className="flex items-center justify-between gap-x-2 text-base">
+                      <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
+                        {education.school}
+                      </h3>
+                      <div className="text-sm tabular-nums text-gray-500">
+                        {education.start} - {education.end ?? "Present"}
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="mt-2 text-xs">
+                    {education.degree}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </Section>
         </section>
 

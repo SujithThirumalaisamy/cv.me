@@ -7,6 +7,7 @@ export interface BlogMatter {
   description: string;
   datetime: string;
   tags: string[];
+  image?: string;
 }
 
 export interface BlogMatterWithContent extends BlogMatter {

@@ -7,7 +7,7 @@ export const RESUME_DATA = {
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about: "Software Engineer @ CrackedDevs",
   summary:
-    "Passionate Software Developer with a strong foundation in full-stack development, cloud computing, and DevOps practices. Proven track record in designing and implementing scalable, resilient, and user-centric applications. Adept at leveraging modern technologies to solve complex problems and deliver impactful solutions.",
+    "From backend applications to self hosted Kubernetes clusters. My focus is on infrastructure automation, reliability, and building developer friendly platforms. I enjoy breaking systems, rebuilding them properly, and automating everything in between.",
   avatarUrl: "https://cdn.isujith.dev/profile.jpg",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
