@@ -53,10 +53,10 @@ export const RESUME_DATA = {
     {
       company: "InterspectAI",
       link: "",
-      badges: ["Freelance"],
-      title: "Full Stack Engineer",
+      badges: ["Contract"],
+      title: "Jr. Software Engineer",
       start: "Nov 2024",
-      end: "Present",
+      end: "Jan 2025",
       description:
         "Developed a real-time AI interview platform with live transcription, audio processing, and TTS.",
     },
