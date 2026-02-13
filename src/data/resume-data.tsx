@@ -129,7 +129,7 @@ export const RESUME_DATA = {
         "The #1 Open-Source CRM Tool. OS platform to manage your customers",
       link: {
         label: "twenty.com",
-        href: "https://twenty.com",
+        href: "https://twenty.com/contributors/SujithThirumalaisamy",
       },
     },
     {
@@ -138,7 +138,7 @@ export const RESUME_DATA = {
       description: "A complete content manager system for course creator.",
       link: {
         label: "app.100xdevs.com",
-        href: "https://app.100xdevs.com",
+        href: "https://github.com/code100x/cms/pulls?q=is%3Apr+author%3Asujiththirumalaisamy+is%3Aclosed",
       },
     },
     {
@@ -147,7 +147,7 @@ export const RESUME_DATA = {
       description: "A complete code cramming platform.",
       link: {
         label: "algo.100xdevs.com",
-        href: "https://algo.100xdevs.com",
+        href: "https://github.com/code100x/algorithmic-arena/pulls?q=is%3Apr+author%3Asujiththirumalaisamy+is%3Aclosed",
       },
     },
   ],
