@@ -1,7 +1,10 @@
 "use client";
 
 import { JSX } from "react";
-import Markdown from "@uiw/react-md-editor";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { Badge } from "@/components/ui/badge";
 
 import { formatDatetime } from "@/lib/utils";
@@ -54,7 +57,7 @@ export default function Blog({
 }) {
   return (
     <>
-      <div className="mx-auto flex w-full max-w-6xl flex-col font-sans">
+      <div className="mx-auto mt-16 flex w-full max-w-6xl flex-col font-sans">
         <Title title={title} />
 
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-2 md:gap-6">
@@ -65,16 +68,51 @@ export default function Blog({
             tags={tags}
           />
           <BlogDivider />
-          <Markdown.Markdown
-            source={content}
-            style={{
-              backgroundColor: "var(--primary)",
-              color: "var(--primary-foreground)",
-              fontSize: "1.1rem",
-              lineHeight: "2rem",
-            }}
-            className="w-full rounded-lg px-[1rem] pb-6 text-black dark:border-gray-200 dark:text-white md:px-[5rem]"
-          />
+          <div className="prose prose-zinc w-full max-w-none dark:prose-invert">
+            <Markdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[
+                rehypeSlug,
+                [
+                  rehypeAutolinkHeadings,
+                  {
+                    behavior: "wrap",
+                    properties: {
+                      className: ["no-underline hover:underline"],
+                    },
+                  },
+                ],
+              ]}
+              components={{
+                h1: ({ node, ...props }) => (
+                  <h1 className="group relative scroll-mt-20" {...props}>
+                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block">
+                      #
+                    </span>
+                    {props.children}
+                  </h1>
+                ),
+                h2: ({ node, ...props }) => (
+                  <h2 className="group relative scroll-mt-20" {...props}>
+                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block">
+                      #
+                    </span>
+                    {props.children}
+                  </h2>
+                ),
+                h3: ({ node, ...props }) => (
+                  <h3 className="group relative scroll-mt-20" {...props}>
+                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block">
+                      #
+                    </span>
+                    {props.children}
+                  </h3>
+                ),
+              }}
+            >
+              {content}
+            </Markdown>
+          </div>
         </div>
       </div>
       <BlogFooter config={config} />
