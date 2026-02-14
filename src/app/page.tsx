@@ -1,6 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { CommandMenu } from "@/components/command-menu";
 import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import {
@@ -9,7 +8,6 @@ import {
   PhoneIcon,
   ArrowRightIcon,
   BookOpenIcon,
-  UserIcon,
   CodeIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

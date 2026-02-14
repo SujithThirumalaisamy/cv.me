@@ -3,15 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [_, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -36,7 +32,7 @@ export const Navbar = () => {
           return (
             <div key={link.url} className="group relative">
               {isActive && (
-                <div className="absolute inset-0 border border-gray-300 bg-gray-100 opacity-100 dark:border-gray-700 dark:bg-gray-900" />
+                <div className="absolute inset-0 border-x border-gray-300 bg-gray-100 opacity-100 dark:border-gray-700 dark:bg-gray-900" />
               )}
               <span className="relative z-10 block px-4 py-2">
                 {link.isExternal ? (

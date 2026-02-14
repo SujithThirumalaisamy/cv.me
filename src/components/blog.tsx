@@ -9,17 +9,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { formatDatetime } from "@/lib/utils";
 import { BlogMatterWithContent } from "@/app/actions/blogs";
-import { GithubIcon, LayersIcon, MailIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
-
-interface BlogFooterProps {
-  config: {
-    title: string;
-    description: string;
-    links: { label: string; url: string; icon: any }[];
-    tagline: string;
-  };
-}
 
 export default function Blog({
   blog: { title, description, datetime, tags, content },

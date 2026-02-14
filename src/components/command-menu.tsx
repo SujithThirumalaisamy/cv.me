@@ -1,7 +1,5 @@
 "use client";
 
-import * as React from "react";
-
 import {
   CommandDialog,
   CommandEmpty,
@@ -11,18 +9,15 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import { Button } from "./ui/button";
-import { CommandIcon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface Props {
   links: { url: string; title: string }[];
 }
 
 export const CommandMenu = ({ links }: Props) => {
-  const [open, setOpen] = React.useState(false);
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  React.useEffect(() => {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
