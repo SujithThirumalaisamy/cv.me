@@ -4,16 +4,12 @@ import { Metadata } from "next";
 import { Section } from "@/components/ui/section";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import {
-  GlobeIcon,
-  MailIcon,
-  PhoneIcon,
   BookOpenIcon,
   UserIcon,
   CodeIcon,
   BriefcaseIcon,
   FolderIcon,
   LinkIcon,
-  Edit,
 } from "lucide-react";
 import { RESUME_DATA } from "@/data/resume-data";
 import { ProjectCard } from "@/components/project-card";
@@ -26,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 dark:bg-gray-950 md:p-16 print:p-12">
+    <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 pt-16 dark:bg-gray-950 md:p-16 print:p-12">
       <section className="mx-auto w-full max-w-3xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
         <Section>
           <h2 className="flex items-center gap-2 text-xl font-bold">
@@ -98,7 +94,7 @@ export default function ResumePage() {
               return (
                 <Badge
                   key={skill}
-                  className="cursor-default transition-colors hover:bg-primary/20"
+                  className="cursor-default transition-colors hover:bg-primary/60"
                 >
                   {skill}
                 </Badge>

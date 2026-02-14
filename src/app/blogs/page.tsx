@@ -1,7 +1,6 @@
 import { getAllBlogs } from "@/app/actions/blogs";
 import { Badge } from "@/components/ui/badge";
 import {
-  Card,
   CardHeader,
   CardTitle,
   CardContent,
@@ -9,9 +8,10 @@ import {
 } from "@/components/ui/card";
 import { formatDatetime } from "@/lib/utils";
 import Link from "next/link";
-import { CalendarIcon, TagIcon } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blog | Sujith Thirumalaisamy",
   description:
     "Thoughts on DevOps, Software Engineering, and tech experiments from my homelab adventures.",
@@ -25,7 +25,7 @@ export default async function BlogPage() {
       <div className="mx-auto flex w-full max-w-6xl flex-col font-sans">
         <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 px-4 py-8">
           <div className="text-center">
-            <p className="mt-8 text-lg text-gray-600 dark:text-gray-400">
+            <p className="-ml-4 mt-8 text-lg text-gray-600 dark:text-gray-400">
               Thoughts on DevOps, Software Engineering, and tech experiments
               from my homelab adventures.
             </p>
@@ -58,7 +58,7 @@ function BlogCard({ blog }: BlogCardProps) {
     <Link href={`/blogs/${blog.slug}`}>
       <div className="group flex h-full flex-col overflow-hidden border transition-all hover:border-zinc-400 hover:shadow-md dark:hover:border-zinc-600 md:flex-row">
         {blog.image && (
-          <div className="relative aspect-video w-full shrink-0 overflow-hidden md:aspect-auto md:w-72">
+          <div className="relative aspect-video h-[20em] shrink-0 overflow-hidden md:aspect-auto md:h-[10em] md:w-72 lg:h-[11em]">
             <img
               src={blog.image}
               alt={blog.title}

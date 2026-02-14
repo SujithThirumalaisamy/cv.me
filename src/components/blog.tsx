@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 
 import { formatDatetime } from "@/lib/utils";
 import { BlogMatterWithContent } from "@/app/actions/blogs";
-import Link from "next/link";
 import { GithubIcon, LayersIcon, MailIcon, TwitterIcon } from "lucide-react";
+import Link from "next/link";
 
 interface BlogFooterProps {
   config: {
@@ -20,35 +20,6 @@ interface BlogFooterProps {
     tagline: string;
   };
 }
-
-const config = {
-  title: "Stay Curious, Keep Exploring!",
-  description:
-    "Thanks for stopping by! I share insights on DevOps, and Software Engineering, sprinkled with homelab adventures and tech experiments.",
-  links: [
-    {
-      label: "isujith.dev",
-      url: "https://cv.isujith.dev",
-      icon: <LayersIcon className="size-4" />,
-    },
-    {
-      label: "SujithThirumalaisamy",
-      url: "https://github.com/SujithThirumalaisamy",
-      icon: <GithubIcon className="size-4" />,
-    },
-    {
-      label: "SujithThiru",
-      url: "https://x.com/SujithThiru",
-      icon: <TwitterIcon className="size-4" />,
-    },
-    {
-      label: "Gmail",
-      url: "mailto:sujithmasi1267@gmail.com",
-      icon: <MailIcon className="size-4" />,
-    },
-  ],
-  tagline: "Code. Automate. Optimize.",
-};
 
 export default function Blog({
   blog: { title, description, datetime, tags, content },
@@ -115,7 +86,7 @@ export default function Blog({
           </div>
         </div>
       </div>
-      <BlogFooter config={config} />
+      <MinimalBlogFooter />
     </>
   );
 }
@@ -142,10 +113,8 @@ function BlogHeader({
           .reduce<JSX.Element[][]>((rows, tag, i) => {
             if (i % 4 === 0) rows.push([]);
             rows[rows.length - 1].push(
-              <Badge
-                key={tag}
-                className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-gray-100 dark:border-[#d18521] dark:bg-[#d18521] dark:hover:bg-[#c87e1f]"
-              >
+              <Badge key={tag} className="cursor-pointer rounded-md px-2 py-0">
+                Get My Resume!
                 {tag}
               </Badge>,
             );
@@ -171,34 +140,31 @@ function BlogHeader({
   );
 }
 
-const BlogFooter = ({ config }: BlogFooterProps) => {
-  return (
-    <footer className="bg-gray-200 p-6 text-center text-primary dark:bg-[#161B22]">
-      <h2 className="text-xl font-semibold">{config.title}</h2>
-      <p className="mt-2 text-center text-sm">{config.description}</p>
-      <div className="mt-4 flex max-w-full flex-wrap justify-center gap-2">
-        {config.links.map((link, index) => (
-          <Link
-            key={index}
-            href={link.url}
-            target="_blank"
-            className="underline"
-            rel="noopener noreferrer"
-          >
-            <Badge className="flex-shrink-0 cursor-pointer rounded-2xl border border-gray-300 bg-white px-3 py-1 text-xs font-normal text-primary transition-colors duration-100 ease-out hover:bg-gray-100 dark:border-[#d18521] dark:bg-[#d18521] dark:hover:bg-[#c87e1f]">
-              {link.icon}
-              {link.label}
-            </Badge>
-          </Link>
-        ))}
-      </div>
-      <h2 className="mt-2 text-xl font-semibold">{config.tagline}</h2>
-    </footer>
-  );
-};
-
 function BlogDivider() {
   return (
     <div className="my-4 h-[0.5px] w-full max-w-[28rem] bg-gray-300"></div>
   );
 }
+
+const MinimalBlogFooter = () => {
+  return (
+    <div className="flex w-full flex-col items-center py-12">
+      <div className="my-8 h-[1px] w-full max-w-2xl bg-neutral-200 dark:bg-neutral-800" />
+      <div className="flex gap-4 text-sm text-neutral-500">
+        <Link
+          href="/blogs"
+          className="transition-colors hover:text-neutral-900 dark:hover:text-neutral-300"
+        >
+          All Posts
+        </Link>
+        <span>•</span>
+        <Link
+          href="/"
+          className="transition-colors hover:text-neutral-900 dark:hover:text-neutral-300"
+        >
+          Home
+        </Link>
+      </div>
+    </div>
+  );
+};

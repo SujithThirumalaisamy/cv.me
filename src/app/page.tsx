@@ -52,7 +52,7 @@ export default async function Page() {
 
   return (
     <>
-      <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 dark:bg-gray-950 md:p-16 print:p-12">
+      <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 pt-16 dark:bg-gray-950 md:p-16 print:p-12">
         <section className="mx-auto w-full max-w-3xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 space-y-2">
@@ -60,7 +60,7 @@ export default async function Page() {
                 {RESUME_DATA.name}
 
                 <a href="https://cdn.isujith.dev/Sujith_Resume.pdf">
-                  <Badge className="cursor-pointer rounded-md px-2 py-0 hover:bg-muted">
+                  <Badge className="px-1 py-0 text-[10px] transition-colors hover:bg-primary/60">
                     Get My Resume!
                   </Badge>
                 </a>
@@ -105,7 +105,6 @@ export default async function Page() {
               <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
             </Avatar>
           </div>
-          {/* Blog Section */}
           <Section className="print:hidden">
             <div className="flex items-center justify-between">
               <h2 className="flex items-center gap-2 text-xl font-bold">
@@ -154,7 +153,7 @@ export default async function Page() {
                 return (
                   <Badge
                     key={skill}
-                    className="cursor-default transition-colors hover:bg-primary/20"
+                    className="cursor-default transition-colors hover:bg-primary/60"
                   >
                     {skill}
                   </Badge>
@@ -163,15 +162,6 @@ export default async function Page() {
             </div>
           </Section>
         </section>
-
-        <CommandMenu
-          links={[
-            ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
-              url: socialMediaLink.url,
-              title: socialMediaLink.name,
-            })),
-          ]}
-        />
       </main>
     </>
   );

@@ -1,6 +1,6 @@
 ---
 title: "Why Run a DNS Server on Kubernetes?"
-description: "Getting trolled by a friend for overengineering my homelab"
+description: "Getting trolled by a friend for overengineering my homelab: I have a valid justification"
 datetime: 2026-01-28
 image: "https://cdn.isujith.dev/bind9_dns.png"
 tags: ["Bind9", "Kubernetes", "DNS", "Terraform", "DevOps", "Homelab"]

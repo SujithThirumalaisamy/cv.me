@@ -70,7 +70,7 @@ export const Navbar = () => {
             </div>
           );
         })}
-        <div className="mx-2 h-4 w-px bg-gray-200 dark:bg-gray-800" />
+        {/* <div className="mx-2 h-4 w-px bg-gray-200 dark:bg-gray-800" />
         <Button
           variant="ghost"
           size="icon"
@@ -87,7 +87,7 @@ export const Navbar = () => {
             <span className="size-4" /> // Placeholder to prevent layout shift
           )}
           <span className="sr-only">Toggle theme</span>
-        </Button>
+        </Button> */}
       </div>
     </nav>
   );

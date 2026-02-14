@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 import React from "react";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Navbar } from "@/components/navbar";
+import { CommandMenu } from "@/components/command-menu";
+import { RESUME_DATA } from "@/data/resume-data";
 
 export const metadata: Metadata = {
   title: "Sujith | Software Engineer & DevOps Specialist",
@@ -20,9 +22,9 @@ export const metadata: Metadata = {
 };
 
 // If loading a variable font, you don't need to specify the font weight
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  display: "swap",
+  variable: "--font-jetbrains-mono",
 });
 
 export default function RootLayout({
@@ -31,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
       <head>
         <link
           rel="apple-touch-icon"
@@ -55,13 +57,21 @@ export default function RootLayout({
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Navbar />
           {children}
         </ThemeProvider>
+        <CommandMenu
+          links={[
+            ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
+              url: socialMediaLink.url,
+              title: socialMediaLink.name,
+            })),
+          ]}
+        />
       </body>
       <Analytics />
     </html>

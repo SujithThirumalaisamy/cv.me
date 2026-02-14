@@ -15,7 +15,7 @@ export function BlogCard({ slug, title, datetime, image }: BlogCardProps) {
     <Link href={`/blogs/${slug}`} className="block h-full">
       <div className="group flex h-full cursor-pointer flex-col">
         {image && (
-          <div className="relative mb-3 h-[8em] w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <div className="relative mb-3 h-[16em] w-full flex-shrink-0 overflow-hidden rounded-lg md:h-[12em] lg:h-[8em]">
             <Image src={image} alt={title} fill className="object-cover" />
           </div>
         )}
