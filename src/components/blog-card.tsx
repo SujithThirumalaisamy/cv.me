@@ -1,3 +1,5 @@
+"use client";
+
 import { CalendarIcon } from "lucide-react";
 import { formatDatetime } from "@/lib/utils";
 import Link from "next/link";
@@ -21,7 +23,7 @@ export function BlogCard({ slug, title, datetime, image }: BlogCardProps) {
         )}
 
         <div className="flex flex-1 flex-col">
-          <h3 className="mb-1 line-clamp-2 text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+          <h3 className="mb-1 line-clamp-2 text-lg md:text-sm font-medium text-foreground transition-colors group-hover:text-primary">
             {title}
           </h3>
 

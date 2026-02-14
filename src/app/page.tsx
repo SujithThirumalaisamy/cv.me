@@ -134,13 +134,8 @@ export default async function Page() {
             </div>
           </Section>
           <Section className="print:hidden">
-            <h2 className="flex items-center gap-2 text-xl font-bold">
-              <CodeIcon className="h-5 w-5" />
-              Building in Public
-            </h2>
             <HeatMap />
           </Section>
-
           <Section>
             <h2 className="flex items-center gap-2 text-xl font-bold">
               <CodeIcon className="h-5 w-5" />
