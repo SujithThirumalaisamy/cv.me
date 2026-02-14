@@ -10,7 +10,7 @@ FROM node:20-alpine AS node-runtime
 
 RUN apk add --no-cache libc6-compat
 
-FROM node:20-alpine AS runnner
+FROM scratch AS runnner
 
 WORKDIR /app
 
