@@ -18,10 +18,10 @@ export default function Blog({
 }) {
   return (
     <>
-      <div className="mx-auto mt-16 flex w-full max-w-6xl flex-col font-sans">
+      <div className="mx-auto mt-12 flex w-full max-w-6xl flex-col px-4 font-sans sm:px-6 md:mt-16">
         <Title title={title} />
 
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-2 md:gap-6">
+        <div className="mx-auto flex w-full min-w-0 max-w-4xl flex-col items-center gap-2 md:gap-6">
           <BlogHeader
             title={title}
             description={description}
@@ -29,7 +29,7 @@ export default function Blog({
             tags={tags}
           />
           <BlogDivider />
-          <div className="prose prose-zinc w-full max-w-none dark:prose-invert">
+          <div className="prose prose-zinc w-full max-w-none overflow-x-auto break-words dark:prose-invert [&_pre]:max-w-full [&_pre]:overflow-x-auto">
             <Markdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[
@@ -45,25 +45,37 @@ export default function Blog({
                 ],
               ]}
               components={{
+                p: ({ node, ...props }) => (
+                  <p className="mx-0 my-3 px-4 leading-7" {...props} />
+                ),
                 h1: ({ node, ...props }) => (
-                  <h1 className="group relative scroll-mt-20" {...props}>
-                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block">
+                  <h1
+                    className="group relative scroll-mt-20 pl-0 md:pl-6"
+                    {...props}
+                  >
+                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block md:inline">
                       #
                     </span>
                     {props.children}
                   </h1>
                 ),
                 h2: ({ node, ...props }) => (
-                  <h2 className="group relative scroll-mt-20" {...props}>
-                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block">
+                  <h2
+                    className="group relative scroll-mt-20 pl-0 md:pl-6"
+                    {...props}
+                  >
+                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block md:inline">
                       #
                     </span>
                     {props.children}
                   </h2>
                 ),
                 h3: ({ node, ...props }) => (
-                  <h3 className="group relative scroll-mt-20" {...props}>
-                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block">
+                  <h3
+                    className="group relative scroll-mt-20 pl-0 md:pl-6"
+                    {...props}
+                  >
+                    <span className="absolute -left-6 mr-2 hidden text-muted-foreground group-hover:block md:inline">
                       #
                     </span>
                     {props.children}
@@ -98,32 +110,37 @@ function BlogHeader({
 }) {
   return (
     <>
-      <div className="flex flex-col items-center gap-2 text-[0.9rem]">
+      <div className="flex w-full max-w-full flex-col items-center justify-center gap-1.5 py-1 text-xs sm:gap-2 sm:text-[0.9rem]">
         {tags
           .reduce<JSX.Element[][]>((rows, tag, i) => {
             if (i % 4 === 0) rows.push([]);
             rows[rows.length - 1].push(
-              <Badge key={tag} className="cursor-pointer rounded-md px-2 py-0">
-                Get My Resume!
+              <Badge
+                key={tag}
+                className="cursor-pointer rounded-md px-2 py-0.5 text-xs"
+              >
                 {tag}
               </Badge>,
             );
             return rows;
           }, [])
           .map((row, i) => (
-            <div key={i} className="flex gap-2">
+            <div
+              key={i}
+              className="flex flex-wrap justify-center gap-1.5 sm:gap-2"
+            >
               {row}
             </div>
           ))}
       </div>
 
-      <div className="px-4 text-center text-[2rem] font-extrabold tracking-tight text-gray-900 dark:text-gray-300 md:text-[3rem]">
+      <div className="px-1 text-center text-lg font-extrabold leading-snug tracking-tight text-gray-900 dark:text-gray-300 sm:px-2 sm:text-xl md:px-4 md:text-2xl lg:text-[2.5rem]">
         {title}
       </div>
-      <div className="text-sm font-medium italic text-[#B91C1B] dark:text-[#EDC38D]">
+      <div className="text-xs font-medium italic text-[#B91C1B] dark:text-[#EDC38D] sm:text-sm">
         Published on {formatDatetime(datetime)}
       </div>
-      <div className="px-10 text-center text-xl text-gray-600 dark:text-gray-400">
+      <div className="px-3 text-center text-sm leading-snug text-gray-600 dark:text-gray-400 sm:px-6 sm:text-base md:px-10 md:text-lg lg:text-xl">
         {description}
       </div>
     </>
@@ -138,7 +155,7 @@ function BlogDivider() {
 
 const MinimalBlogFooter = () => {
   return (
-    <div className="flex w-full flex-col items-center py-12">
+    <div className="flex w-full flex-col items-center px-4 py-12">
       <div className="my-8 h-[1px] w-full max-w-2xl bg-neutral-200 dark:bg-neutral-800" />
       <div className="flex gap-4 text-sm text-neutral-500">
         <Link

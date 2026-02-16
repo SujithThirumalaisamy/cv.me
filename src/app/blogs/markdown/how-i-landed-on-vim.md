@@ -2,7 +2,7 @@
 title: "How I Landed on Neovim: Moving Backwards to Move Faster"
 description: "From relying on heavyweight IDEs to embracing low level terminal tools — why moving to Neovim?"
 datetime: 2026-02-09
-image: "https://cdn.isujith.dev/lazyvim.png"
+image: "lazyvim.png"
 tags:
   [
     "Neovim",

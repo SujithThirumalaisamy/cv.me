@@ -10,6 +10,7 @@ import { formatDatetime } from "@/lib/utils";
 import Link from "next/link";
 import { CalendarIcon } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Blog | Sujith Thirumalaisamy",
@@ -59,7 +60,8 @@ function BlogCard({ blog }: BlogCardProps) {
       <div className="group flex h-full flex-col overflow-hidden border transition-all hover:border-zinc-400 hover:shadow-md dark:hover:border-zinc-600 md:flex-row">
         {blog.image && (
           <div className="relative aspect-video h-[20em] shrink-0 overflow-hidden md:aspect-auto md:h-[10em] md:w-72 lg:h-[11em]">
-            <img
+            <Image
+              fill
               src={blog.image}
               alt={blog.title}
               className="h-full w-full object-cover"

@@ -23,7 +23,7 @@ export function BlogCard({ slug, title, datetime, image }: BlogCardProps) {
         )}
 
         <div className="flex flex-1 flex-col">
-          <h3 className="mb-1 line-clamp-2 text-lg md:text-sm font-medium text-foreground transition-colors group-hover:text-primary">
+          <h3 className="mb-1 line-clamp-2 text-lg font-medium text-foreground transition-colors group-hover:text-primary md:text-sm">
             {title}
           </h3>
 

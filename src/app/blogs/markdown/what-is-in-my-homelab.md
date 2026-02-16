@@ -2,7 +2,7 @@
 title: "Inside My DevOps Homelab: Purpose and Tech Overview"
 description: "An inside look at my homelab, featuring a Proxmox backed Kubernetes cluster built to experiment with DevOps tools and automation."
 datetime: 2025-10-22
-image: "https://cdn.isujith.dev/homelab.png"
+image: "homelab.png"
 tags:
   [
     "Homelab",
