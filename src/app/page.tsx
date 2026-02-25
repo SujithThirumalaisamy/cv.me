@@ -9,6 +9,7 @@ import {
   ArrowRightIcon,
   BookOpenIcon,
   CodeIcon,
+  LinkIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
@@ -58,8 +59,8 @@ export default async function Page() {
                 {RESUME_DATA.name}
 
                 <a href="https://cdn.isujith.dev/Sujith_Resume.pdf">
-                  <Badge className="px-1 py-0 text-sm text-black transition-colors hover:bg-primary/60">
-                    Get My Resume!
+                  <Badge className="px-1 py-0 text-xs text-black transition-colors hover:bg-primary/60">
+                    Get My Resume
                   </Badge>
                 </a>
               </h1>
