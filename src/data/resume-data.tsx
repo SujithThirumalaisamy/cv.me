@@ -7,7 +7,7 @@ export const RESUME_DATA = {
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
   about: "Software Engineer @ CrackedDevs",
   summary:
-    "I am a hobbyist software engineer and an tinkerer. For a brief period, I focused on formal Computer Science education, where I built a strong foundation in systems, networking, and computing. Most of my real learning, however, has come from building, breaking, rebuilding, and running things in production and in my homelab. Over the years, I have gravitated toward DevOps and infrastructure engineering, working on automation, cloud native systems, and reliability focused tooling. I enjoy unconventional setups, practical problem solving, and building systems that are simple, scalable, and resilient.",
+    "I am a backend and infrastructure focused software engineer who designs, builds, and operates production systems end to end. I have a strong foundation in computer science, systems, networking, and computing, and I apply it daily while shipping backend features, building APIs and services, automating infrastructure, and keeping systems reliable. A lot of my judgment comes from running real workloads in both production and my homelab, where I experiment with cloud native stacks, Kubernetes, and reliability-focused tooling. I enjoy practical problem solving and building systems that are simple, scalable, cost efficient, and resilient.",
   avatarUrl: "https://cdn.isujith.dev/profile.jpg",
   personalWebsiteUrl: "https://isujith.dev",
   contact: {
@@ -35,8 +35,6 @@ export const RESUME_DATA = {
     {
       school: "Nallamuthu Gounder Mahalingam College",
       degree: "Bachelor of Science in Information Technology",
-      start: "2022",
-      end: "2025",
     },
   ],
   work: [
@@ -48,7 +46,7 @@ export const RESUME_DATA = {
       start: "May 2025",
       end: "Present",
       description:
-        "Bulding a application to the folks who love to customize thier subliminals.",
+        "Designed and built a customizable subliminal application using TypeScript/Next.js, Kubernetes, and cloud native tooling to let users create, schedule, and personalize tracks, scaling the underlying infrastructure and optimizing costs to improve reliability and performance.",
     },
     {
       company: "InterspectAI",
@@ -58,7 +56,7 @@ export const RESUME_DATA = {
       start: "Nov 2024",
       end: "Jan 2025",
       description:
-        "Developed a real-time AI interview platform with live transcription, audio processing, and TTS.",
+        "Built a complex real time AI interview platform in Go using WebRTC, on-the-fly audio processing pipelines with tools like FFmpeg, streaming transcription, and TTS to make candidates feel like they are talking to an AI in real time and dramatically reduce manual review effort for recruiters.",
     },
     {
       company: "Team Tamizhan",
@@ -68,32 +66,33 @@ export const RESUME_DATA = {
       start: "Dec 2022",
       end: "May 2024",
       description:
-        "Cutting-edge tools using React JS for dynamic interfaces, seamlessly integrated with Gitlab for version control and CI/CD.",
+        "Built SaaS products and public-facing sites with React and modern frontend tooling, improving developer experience by integrating GitLab-based CI/CD pipelines to ship features quickly and reliably for community campaigns.",
     },
   ],
   skills: [
-    "TypeScript",
+    // Languages & Backend
     "GoLang",
-    "Next.js",
+    "TypeScript",
     "Express/NestJS",
     "SQL/NoSQL/Prisma",
-    "Helm",
-    "DevOps/Cloud/Kubernetes",
-    "CI/CD",
-    "Touch Typing (130 WPM)",
-    "Prometheus/Grafana",
     "Microservices",
-    "Backend",
-    "Networking/Infrastructure",
+    // DevOps, Cloud & Infra
+    "DevOps/Cloud/Kubernetes",
+    "Helm",
     "GitOps",
+    "CI/CD",
+    "Prometheus/Grafana",
+    "Networking/Infrastructure",
     "Shell Scripting",
+    // Other
+    "Touch Typing (130 WPM)",
   ],
   projects: [
     {
       title: "Kubecorner",
       techStack: ["ArgoCD", "Kubernetes", "DevOps", "Monitoring"],
       description:
-        "Kubernetes Manifest repository for all of my projects which is connected to ArgoCD for CI/CD.",
+        "Centralized K8s manifest repo for my services, wired into ArgoCD to continuously sync clusters, standardize configurations, and make rolling outs a breeze.",
       link: {
         label: "Repository",
         href: "https://github.com/SujithThirumalaisamy/kubecorner",
@@ -108,7 +107,7 @@ export const RESUME_DATA = {
         "Microservices",
       ],
       description:
-        "Developing a highly scalable remote code execution and testing engine with HA Kubernetes.",
+        "Building a highly scalable remote code execution engine on top of HA Kubernetes, with lang specific runtimes to run untrusted code safely and elastically on isolated environments.",
       link: {
         label: "Repository",
         href: "https://github.com/SujithThirumalaisamy/remote-execution-engine",
@@ -118,7 +117,11 @@ export const RESUME_DATA = {
       title: "Homelab",
       techStack: ["Kubernetes", "Remote Access", "DNS", "Terraform", "IAAC"],
       description:
-        "Building my own homelab where I host and tinker with services like Databases, media servers and DNS.",
+        "Running a production like homelab with Kubernetes, DNS, and remote access, using Terraform and IaC to provision services like databases and servers.",
+      link: {
+        label: "isujith.dev",
+        href: "https://isujith.dev",
+      },
     },
   ],
   opensource: [
@@ -126,7 +129,7 @@ export const RESUME_DATA = {
       title: "Twenty",
       techStack: ["twentyhq/twenty", "Next.js", "PostgreSQL", "Monorepo"],
       description:
-        "The #1 Open-Source CRM Tool. OS platform to manage your customers",
+        "The #1 Open-Source CRM Tool. Contributed for UI/UX improvements to frontend, helping improve the product experience.",
       link: {
         label: "twenty.com",
         href: "https://twenty.com/contributors/SujithThirumalaisamy",
@@ -135,7 +138,8 @@ export const RESUME_DATA = {
     {
       title: "app.100xdevs",
       techStack: ["Next.js", "PostgreSQL", "Monorepo/TurboRepo", "Prisma"],
-      description: "A complete content manager system for course creator.",
+      description:
+        "A complete content manager system for course creator. Implemented a Notion scraping tool and backend to make importing and managing course content smoother.",
       link: {
         label: "app.100xdevs.com",
         href: "https://github.com/code100x/cms/pulls?q=is%3Apr+author%3Asujiththirumalaisamy+is%3Aclosed",
@@ -144,7 +148,8 @@ export const RESUME_DATA = {
     {
       title: "algo.100xdevs",
       techStack: ["Next.js", "PostgreSQL/Prisma", "TurboRepo", "Kubernetes"],
-      description: "A complete code cramming platform.",
+      description:
+        "A complete code cramming platform. Contributed to the code execution pipeline, modifying how the code execution engine runs tests so evaluation is more reliable.",
       link: {
         label: "algo.100xdevs.com",
         href: "https://github.com/code100x/algorithmic-arena/pulls?q=is%3Apr+author%3Asujiththirumalaisamy+is%3Aclosed",

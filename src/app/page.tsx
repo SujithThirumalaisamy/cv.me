@@ -51,14 +51,14 @@ export default async function Page() {
   return (
     <>
       <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 pt-16 dark:bg-gray-950 md:p-16 print:p-12">
-        <section className="mx-auto w-full max-w-3xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
+        <section className="mx-auto w-full max-w-4xl space-y-[1.8rem] bg-white dark:bg-gray-950 print:space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 space-y-2">
               <h1 className="flex flex-wrap items-center items-center gap-2 text-2xl font-bold">
                 {RESUME_DATA.name}
 
                 <a href="https://cdn.isujith.dev/Sujith_Resume.pdf">
-                  <Badge className="px-1 py-0 text-[10px] transition-colors hover:bg-primary/60">
+                  <Badge className="px-1 py-0 text-sm text-black transition-colors hover:bg-primary/60">
                     Get My Resume!
                   </Badge>
                 </a>

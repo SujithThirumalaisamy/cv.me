@@ -16,7 +16,7 @@ export const Navbar = () => {
   const links: { title: string; url: string; isExternal?: boolean }[] = [
     { title: "Home", url: "/" },
     { title: "Blogs", url: "/blogs" },
-    { title: "Resume", url: "/resume" },
+    { title: "About", url: "/about" },
   ];
 
   return (

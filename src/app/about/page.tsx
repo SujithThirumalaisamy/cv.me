@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function ResumePage() {
   return (
     <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 pt-16 dark:bg-gray-950 md:p-16 print:p-12">
-      <section className="mx-auto w-full max-w-3xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
+      <section className="mx-auto w-full max-w-4xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
         <Section>
           <h2 className="flex items-center gap-2 text-xl font-bold">
             <UserIcon className="h-5 w-5" />
@@ -165,9 +165,6 @@ export default function ResumePage() {
                     <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                       {education.school}
                     </h3>
-                    <div className="text-sm tabular-nums text-gray-500">
-                      {education.start} - {education.end ?? "Present"}
-                    </div>
                   </div>
 
                   <h4 className="font-mono text-sm leading-none">
