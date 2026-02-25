@@ -26,7 +26,7 @@ export default async function BlogPage() {
       <main className="relative mx-auto w-full scroll-my-12 overflow-auto p-4 pt-16 dark:bg-gray-950 md:p-16 print:p-12">
         <section className="mx-auto w-full max-w-4xl space-y-8 bg-white dark:bg-gray-950 print:space-y-6">
           <div className="text-center">
-            <p className="-ml-4 mt-8 text-lg text-gray-600 dark:text-gray-400">
+            <p className="-ml-4 mt-2 text-lg text-gray-600 dark:text-gray-400">
               Thoughts on DevOps, Software Engineering, and tech experiments
               from my homelab adventures.
             </p>

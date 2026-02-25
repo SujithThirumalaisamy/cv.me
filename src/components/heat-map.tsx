@@ -41,7 +41,7 @@ const gitHubTheme: ThemeInput = {
 };
 
 const DAYS_IN_WEEKS = 7;
-const WEEKS = 47;
+const WEEKS = 55;
 
 const today = new Date();
 const dayOfWeek = today.getUTCDay();
