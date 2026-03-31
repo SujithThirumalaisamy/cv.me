@@ -39,12 +39,22 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Typewise",
+      link: "https://typewise.app",
+      badges: ["YC S22", "Remote"],
+      title: "MLOps Engineer",
+      start: "Mar 2026",
+      end: "Present",
+      description:
+        "Working on MLOps and DevOps, improving monitoring and observability infrastructure, and optimizing cloud costs to enhance system reliability and operational efficiency for AI-powered communication products.",
+    },
+    {
       company: "CrackedDevs",
       link: "https://crackeddevs.com",
       badges: ["US Remote"],
       title: "Software Engineer",
       start: "May 2025",
-      end: "Present",
+      end: "Feb 2026",
       description:
         "Designed and built a customizable subliminal application using TypeScript/Next.js, Kubernetes, and cloud native tooling to let users create, schedule, and personalize tracks, scaling the underlying infrastructure and optimizing costs to improve reliability and performance.",
     },
