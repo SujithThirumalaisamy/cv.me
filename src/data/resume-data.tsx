@@ -5,7 +5,7 @@ export const RESUME_DATA = {
   initials: "ST",
   location: "Coimbatore, Tamil Nadu",
   locationLink: "https://maps.app.goo.gl/PPC3daTjnj5PVdbd8",
-  about: "Software Engineer @ CrackedDevs",
+  about: "MLOps Engineer @ Typewise",
   summary:
     "I am a backend and infrastructure focused software engineer who designs, builds, and operates production systems end to end. I have a strong foundation in computer science, systems, networking, and computing, and I apply it daily while shipping backend features, building APIs and services, automating infrastructure, and keeping systems reliable. A lot of my judgment comes from running real workloads in both production and my homelab, where I experiment with cloud native stacks, Kubernetes, and reliability-focused tooling. I enjoy practical problem solving and building systems that are simple, scalable, cost efficient, and resilient.",
   avatarUrl: "https://cdn.isujith.dev/profile.jpg",
