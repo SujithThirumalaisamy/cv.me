@@ -32,24 +32,31 @@ export async function getPostData(slug: string) {
 }
 
 export async function getAllBlogs() {
-  const markdownFiles = await fs.promises.readdir(postsDirectory);
+  try {
+    const markdownFiles = await fs.promises.readdir(postsDirectory);
 
-  const blogs = await Promise.all(
-    markdownFiles.map(async (fileName) => {
-      const slug = fileName.replace(".md", "");
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContent = await fs.promises.readFile(fullPath, "utf8");
-      const matterResult = parseMarkdown(fileContent);
+    const blogs = await Promise.all(
+      markdownFiles
+        .filter((fileName) => fileName.endsWith(".md"))
+        .map(async (fileName) => {
+          const slug = fileName.replace(".md", "");
+          const fullPath = path.join(postsDirectory, fileName);
+          const fileContent = await fs.promises.readFile(fullPath, "utf8");
+          const matterResult = parseMarkdown(fileContent);
 
-      return {
-        slug,
-        ...matterResult,
-      };
-    }),
-  );
+          return {
+            slug,
+            ...matterResult,
+          };
+        }),
+    );
 
-  // Sort by date (newest first)
-  return blogs.sort(
-    (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime(),
-  );
+    // Sort by date (newest first)
+    return blogs.sort(
+      (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime(),
+    );
+  } catch (error) {
+    console.error("Error reading blogs directory:", error);
+    return [];
+  }
 }

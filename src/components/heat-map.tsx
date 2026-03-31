@@ -5,10 +5,17 @@ import { Section } from "./ui/section";
 const GITHUB_USERNAME = "sujiththirumalaisamy";
 
 const fetchGitHubData = async (): Promise<ApiResponse> => {
-  const response = await fetch(
-    `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`,
-  );
-  return response.json();
+  try {
+    const response = await fetch(
+      `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}`,
+    );
+    if (!response.ok) {
+      return { contributions: [], total: {} };
+    }
+    return response.json();
+  } catch {
+    return { contributions: [], total: {} };
+  }
 };
 
 export default async function HeatMap() {
@@ -48,7 +55,11 @@ const dayOfWeek = today.getUTCDay();
 
 const totalDays = WEEKS * DAYS_IN_WEEKS - (6 - dayOfWeek);
 
-const transformData = (data: Contribution[]) => {
+const transformData = (data: Contribution[] | undefined) => {
+  if (!data || !Array.isArray(data)) {
+    return { filteredData: [], totalCommits: 0 };
+  }
+
   const today = new Date();
 
   const filteredData = data

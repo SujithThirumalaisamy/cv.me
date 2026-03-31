@@ -9,13 +9,13 @@ import {
   ArrowRightIcon,
   BookOpenIcon,
   CodeIcon,
-  LinkIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
 import HeatMap from "@/components/heat-map";
 import { getAllBlogs } from "@/app/actions/blogs";
 import { BlogCard } from "@/components/blog-card";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
@@ -110,13 +110,13 @@ export default async function Page() {
                 <BookOpenIcon className="h-5 w-5" />
                 Latest Writings
               </h2>
-              <a
+              <Link
                 href="/blogs"
                 className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 View all posts
                 <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
 
             <div className="relative -mx-4 px-4">
