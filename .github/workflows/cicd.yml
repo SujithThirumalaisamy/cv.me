@@ -1,44 +1,62 @@
-name: Continuous Integration and Continuous Deployment
+name: Deploy static site
+
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    env:
+      BUCKET_NAME: ${{ vars.BUCKET_NAME }}
+      BUCKET_SOURCE: ${{ vars.BUCKET_SOURCE }}
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Docker login
-        uses: docker/login-action@v2
+      - uses: actions/setup-node@v4
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          node-version: 20
+          cache: yarn
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: sujiththirumalaisamy/cv:${{ github.sha }}
+      - name: Build static export
+        run: yarn build
 
-      - name: Checkout ops repo
-        uses: actions/checkout@v4
-        with:
-          repository: sujiththirumalaisamy/kubecorner
-          token: ${{ secrets.PAT }}
-          path: ops
-      - name: Update image tag and push
-        working-directory: ops
+      - name: Configure bucket credentials
         run: |
-          sed -i 's|image: sujiththirumalaisamy/cv:.*|image: sujiththirumalaisamy/cv:${{ github.sha }}|' cv/deployment.yml
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          git add cv/deployment.yml
-          git commit -m "Update image to ${{ github.sha }}" || echo "No changes to commit"
-          git push origin main
+          if [ "$BUCKET_SOURCE" = "r2" ]; then
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }}" >> "$GITHUB_ENV"
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }}" >> "$GITHUB_ENV"
+            echo "AWS_DEFAULT_REGION=auto" >> "$GITHUB_ENV"
+            echo "AWS_ENDPOINT_URL=https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com" >> "$GITHUB_ENV"
+          elif [ "$BUCKET_SOURCE" = "s3" ]; then
+            echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> "$GITHUB_ENV"
+            echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> "$GITHUB_ENV"
+            echo "AWS_DEFAULT_REGION=${{ secrets.AWS_REGION }}" >> "$GITHUB_ENV"
+          else
+            echo "BUCKET_SOURCE must be 's3' or 'r2' (got '$BUCKET_SOURCE')" >&2
+            exit 1
+          fi
+
+      - name: Empty bucket
+        run: aws s3 rm "s3://${BUCKET_NAME}" --recursive
+
+      - name: Upload out/
+        run: aws s3 cp out/ "s3://${BUCKET_NAME}/" --recursive
+
+      - name: Invalidate cache
+        run: |
+          if [ "$BUCKET_SOURCE" = "r2" ]; then
+            curl -fsS -X POST \
+              "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+              -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+              -H "Content-Type: application/json" \
+              --data '{"purge_everything":true}'
+          else
+            aws cloudfront create-invalidation \
+              --distribution-id "${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}" \
+              --paths '/*'
+          fi
